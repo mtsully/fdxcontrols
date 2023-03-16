@@ -12,7 +12,7 @@ resource "kubernetes_ingress_v1" "fdx-ingress" {
           path = "/"
           backend {
             service {
-                name = kubernetes_service.fdxri_tomcat.metadata.0.name
+                name = kubernetes_service.fdxri-tomcat.metadata.0.name
                 port {
                     number = 8080
                 }

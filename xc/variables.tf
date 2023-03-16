@@ -69,6 +69,12 @@ variable "xc_ddos_pro" {
   description = "Enable XC DDoS Protection"
   default = "false"
 }
+#XC DDoS Detection
+variable "xc_ddos_def" {
+  type = string
+  description = "Enable XC DDoS Detection"
+  default = "false"
+}
 #XC Malicious User Detection
 variable "xc_mud" {
   type        = string

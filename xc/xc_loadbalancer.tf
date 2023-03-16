@@ -26,7 +26,7 @@ resource "volterra_origin_pool" "op" {
   loadbalancer_algorithm = "LB_OVERRIDE"
 }
 
-resource "volterra_http_loadbalancer" "fdx_lb_https" {
+resource "volterra_http_loadbalancer" "lb_fdx_https" {
   name      = format("%s-xclb-%s", local.project_prefix, local.build_suffix)
   namespace = var.xc_namespace
   labels = {

@@ -1,3 +1,14 @@
+
+terraform {
+  required_version = ">= 0.14.0"  
+  required_providers {
+    volterra = {
+      source = "gavinbunney/kubectl"
+      version = ">= 1.7.0"
+    }
+  }
+}
+
 provider "aws" {
     region     = local.aws_region
 }
@@ -13,7 +24,7 @@ provider "helm" {
         token = data.aws_eks_cluster_auth.auth.token  
     }
 }
-provider "gavinbunney/kubectl" {
+provider "kubectl" {
   host                   = local.host
   cluster_ca_certificate = base64decode(local.cluster_ca_certificate)
   token                  = data.aws_eks_cluster_auth.auth.token

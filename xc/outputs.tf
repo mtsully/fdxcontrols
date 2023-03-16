@@ -1,6 +1,6 @@
 
 output "xc_lb_name" {
-  value = nonsensitive(volterra_http_loadbalancer.fdx_lb_https.name)
+  value = nonsensitive(volterra_http_loadbalancer.lb_fdx_https.name)
 }
 output "xc_waf_name" {
   value = nonsensitive(volterra_app_firewall.waap-tf.name)

@@ -1,5 +1,5 @@
 #Global
-project_prefix = "FDX_Reference_Implementation"
+project_prefix = "fdx-reference-implementation"
 resource_owner = "Valentin Tobi"
 
 #AWS INFRA

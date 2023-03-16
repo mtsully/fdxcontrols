@@ -28,6 +28,9 @@ resource "kubernetes_deployment" "fdxri" {
           }
           image_pull_policy = "IfNotPresent"
         }
+        image_pull_secrets {
+          name = "fdx-docker-registry"
+        }
       }
     }
   }

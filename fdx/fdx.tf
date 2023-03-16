@@ -87,6 +87,9 @@ resource "kubernetes_deployment" "postgres" {
           }
           image_pull_policy = "IfNotPresent"
         }
+        image_pull_secrets {
+          name = "fdx-docker-registry"
+        }
       }
     }
   }

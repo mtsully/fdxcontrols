@@ -1,26 +1,26 @@
 resource "kubernetes_deployment" "fdxri_tomcat" {
   metadata {
-    name = "fdxri_tomcat"
+    name = "fdxri-tomcat"
     labels = {
-      app = "fdxri_tomcat"
+      app = "fdxri-tomcat"
     }
   }
   spec {
     replicas = 1
     selector {
       match_labels = {
-        app = "fdxri_tomcat"
+        app = "fdxri-tomcat"
       }
     }
     template {
       metadata {
         labels = {
-          app = "fdxri_tomcat"
+          app = "fdxri-tomcat"
         }
       }
       spec {
         container {
-          name  = "fdxri_tomcat"
+          name  = "fdxri-tomcat"
           image = "docker-registry.financialdataexchange.org/fdxri_dc_tomcat:latest"
 
           port {
@@ -33,12 +33,12 @@ resource "kubernetes_deployment" "fdxri_tomcat" {
   }
 }
 
-resource "kubernetes_service" "fdxri_tomcat" {
+resource "kubernetes_service" "fdxri-tomcat" {
   metadata {
-    name = "fdxri_tomcat"
+    name = "fdxri-tomcat"
     labels = {
-      app = "fdxri_tomcat"
-      service = "fdxri_tomcat"
+      app = "fdxri-tomcat"
+      service = "fdxri-tomcat"
     }
   }
   spec {
@@ -48,17 +48,17 @@ resource "kubernetes_service" "fdxri_tomcat" {
       target_port = "8080"
     }
     selector = {
-      app = "fdxri_tomcat"
+      app = "fdxri-tomcat"
     }
     type = "ClusterIP"
   }
 }
 
-resource "kubernetes_deployment" "postgres_container" {
+resource "kubernetes_deployment" "postgres-container" {
   metadata {
-    name = "postgres_container"
+    name = "postgres-container"
     labels = {
-      app = "postgres_container"
+      app = "postgres-container"
     }
   }
   spec {
@@ -66,18 +66,18 @@ resource "kubernetes_deployment" "postgres_container" {
 
     selector {
       match_labels = {
-        app = "postgres_container"
+        app = "postgres-container"
       }
     }
     template {
       metadata {
         labels = {
-          app = "postgres_container"
+          app = "postgres-container"
         }
       }
       spec {
         container {
-          name  = "postgres_container"
+          name  = "postgres-container"
           image = "docker-registry.financialdataexchange.org/fdxri_pgdb:latest"
           port {
             container_port = 5432
@@ -93,7 +93,7 @@ resource "kubernetes_service" "postgres" {
   metadata {
     name = "postgres"
     labels = {
-      app = "postgres_container"
+      app = "postgres-container"
       service = "postgres"
     }
   }
@@ -104,7 +104,7 @@ resource "kubernetes_service" "postgres" {
       target_port = "5432"
     }
     selector = {
-      app = "postgres_container"
+      app = "postgres-container"
     }
     type = "ClusterIP"
   }

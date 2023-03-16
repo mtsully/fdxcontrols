@@ -1,4 +1,4 @@
-resource "kubernetes_deployment" "fdxri_tomcat" {
+resource "kubernetes_deployment" "fdxri-tomcat" {
   metadata {
     name = "fdxri-tomcat"
     labels = {

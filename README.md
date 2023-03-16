@@ -59,6 +59,8 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | ssh_key | Terraform | Your ssh key for access to created BIG-IP and compute assets |
   | admin_src_addr | Terraform | The source address and subnet in CIDR format of your administrative workstation |
   | tf_cloud_organization | Terraform | Your Terraform Cloud Organization name |
+  | fdx_dockerhub_username | Terraform | The FDX Docker Registry username, see FDX reference implementation deployment guide |
+  | fdx_dockerhub_password | Terraform | The FDX Docker Registry password, see FDX reference implementation deployment guide |
 
 ## GitHub
 
@@ -70,9 +72,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   *  TF_API_TOKEN: Your Terraform Cloud API token
   *  TF_CLOUD_ORGANIZATION: Your Terraform Cloud Organization name
   *  TF_CLOUD_WORKSPACE_*\<Workspace Name\>*: Create for each workspace in your workflow
-      * EX: TF_CLOUD_WORKSPACE_BIGIP would be created with the value `bigip`
-  *  FDX_DOCKERHUB_USERNAME: The FDX Docker Registry username, see FDX reference implementation deployment guide
-  *  FDX_DOCKERHUB_PASSWORD: The FDX Docker Registry password, see FDX reference implementation deployment guide 
+      * EX: TF_CLOUD_WORKSPACE_BIGIP would be created with the value `bigip` 
 
 ## Workflow Runs
 

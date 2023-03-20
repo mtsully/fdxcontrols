@@ -43,6 +43,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | xc-nap      | infra, eks, nap, arcadia, xc    |
   | xc-nap-api  | infra, eks, nap, arcadia, xc    |
   | xc-nap-bot  | infra, eks, nap, arcadia, xc    |
+  | xc-gke-nap  | gcp-infra, gke, nap, fdx, xc    |
 
 * **Workspace Sharing:** Under the settings for each Workspace, set the **Remote state sharing** to share with each Workspace created.
   
@@ -84,6 +85,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   |------------------ | ------------------|
   | xc-bigip | deploy-xc-bigip |
   | xc-nap | deploy-xc-nap |
+  | xc-gke-nap | deploy-xc-gke-nap |
  
   **DESTROY**
   
@@ -91,6 +93,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   |------------------ | ------------------|
   | xc-bigip | destroy-xc-bigip |
   | xc-nap | destroy-xc-nap |
+  | xc-gke-nap | destroy-xc-gke-nap |
   
 
 **STEP 2:** Rename `infra/terraform.tfvars.examples` to `infra/terraform.tfvars` and add the following data:

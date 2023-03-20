@@ -1,7 +1,3 @@
-variable "gke_num_nodes" {
-  default     = 2
-  description = "number of gke nodes"
-}
 
 # GKE cluster
 resource "google_container_cluster" "primary" {
@@ -20,9 +16,9 @@ resource "google_container_cluster" "primary" {
 
 # Separately Managed Node Pool
 resource "google_container_node_pool" "primary_nodes" {
-  name       = local.cluster_name
+  name       = google_container_cluster.primary.name
   location   = local.region
-  cluster    = local.cluster_name
+  cluster    = google_container_cluster.primary.name
   node_count = var.gke_num_nodes
 
   node_config {

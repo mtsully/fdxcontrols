@@ -14,15 +14,15 @@ resource "google_container_cluster" "primary" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
-  network    = google_compute_network.vpc.name
-  subnetwork = google_compute_subnetwork.subnet.name
+  network    = local.network_name
+  subnetwork = local.subnet_name
 }
 
 # Separately Managed Node Pool
 resource "google_container_node_pool" "primary_nodes" {
-  name       = google_container_cluster.primary.name
+  name       = local.cluster_name
   location   = local.region
-  cluster    = google_container_cluster.primary.name
+  cluster    = local.cluster_name
   node_count = var.gke_num_nodes
 
   node_config {

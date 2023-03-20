@@ -54,6 +54,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | AWS_ACCESS_KEY_ID | Environment | Your AWS Access Key ID |
   | AWS_SECRET_ACCESS_KEY  | Environment | Your AWS Secret Access Key |
   | AWS_SESSION_TOKEN | Environment | Your AWS Session Token |
+  | GOOGLE_CREDENTIALS | Environment | Your GCP Service Account Key .json |
   | NGINX_JWT | Environment | Your NGINX JSON Web Token associated with your NGINX license. Set this to nginx-repo.jwt |
   | VOLT_API_P12_FILE | Environment | Your F5XC API certificate. Set this to api.p12 |
   | VES_P12_PASSWORD | Environment | Set this to the password you supplied when creating your F5 XC API certificate |

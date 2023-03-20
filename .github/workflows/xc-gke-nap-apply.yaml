@@ -378,4 +378,3 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
-Footer

@@ -81,7 +81,7 @@ jobs:
         if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
 
-  terraform_eks:
+  terraform_gke:
     name: "GCP GKE"
     runs-on: ubuntu-latest
     needs: terraform_infra

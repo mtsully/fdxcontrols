@@ -309,7 +309,7 @@ jobs:
   terraform_infra:
     name: "GCP Infra"
     runs-on: ubuntu-latest
-    needs: terraform_eks
+    needs: terraform_gke
     defaults:
       run:
         working-directory: ./gcp-infra

@@ -1,4 +1,4 @@
-resource "kubectl_manifest" "test" {
+resource "kubectl_manifest" "nap-api-sec-policy" {
     yaml_body = <<YAML
 apiVersion: appprotect.f5.com/v1beta1
 kind: APPolicy

@@ -255,7 +255,7 @@ jobs:
             cloud {
               organization = "${{ secrets.TF_CLOUD_ORGANIZATION }}"
               workspaces {
-                name = "${{ secrets.TF_CLOUD_WORKSPACE_EKS }}"
+                name = "${{ secrets.TF_CLOUD_WORKSPACE_GKE }}"
               }
             }
           }
@@ -330,7 +330,7 @@ jobs:
             cloud {
               organization = "${{ secrets.TF_CLOUD_ORGANIZATION }}"
               workspaces {
-                name = "${{ secrets.TF_CLOUD_WORKSPACE_INFRA }}"
+                name = "${{ secrets.TF_CLOUD_WORKSPACE_GCP_INFRA }}"
               }
             }
           }

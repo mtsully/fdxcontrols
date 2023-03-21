@@ -1,7 +1,7 @@
 
 # GKE cluster
 resource "google_container_cluster" "primary" {
-  name     = "${local.project_id}-gke"
+  name     = "${local.project_id}-fdx-ref-impl-gke"
   location = local.region
   
   # We can't create a cluster with no node pool defined, but we want to only use

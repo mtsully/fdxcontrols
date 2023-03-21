@@ -37,7 +37,6 @@ provider "kubernetes" {
     client_certificate = base64decode(local.kubernetes_cluster_client_certificate)
     client_key = base64decode(local.kubernetes_cluster_client_key)
     cluster_ca_certificate = base64decode(local.kubernetes_cluster_ca_certificate)
-    load_config_file = false
 }
 
 provider "helm" {
@@ -46,7 +45,6 @@ provider "helm" {
         client_certificate = base64decode(local.kubernetes_cluster_client_certificate)
         client_key = base64decode(local.kubernetes_cluster_client_key)
         cluster_ca_certificate = base64decode(local.kubernetes_cluster_ca_certificate)
-        load_config_file = false
     }
 }
 

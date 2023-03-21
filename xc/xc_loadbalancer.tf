@@ -1,7 +1,7 @@
 # Create XC LB config
-
+#AWS: name                   = format("%s-xcop-%s", local.project_prefix, local.build_suffix)
 resource "volterra_origin_pool" "op" {
-  name                   = format("%s-xcop-%s", local.project_prefix, local.build_suffix)
+  name                   = format("%s-xcop-%s", local.project_id, local.region)
   namespace              = var.xc_namespace
   description            = format("Origin pool pointing to origin server %s", local.origin_server)
   dynamic "origin_servers" {
@@ -26,13 +26,15 @@ resource "volterra_origin_pool" "op" {
   loadbalancer_algorithm = "LB_OVERRIDE"
 }
 
+#AWS: name      = format("%s-xclb-%s", local.project_prefix, local.build_suffix)
+#     description = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)  
 resource "volterra_http_loadbalancer" "lb_fdx_https" {
-  name      = format("%s-xclb-%s", local.project_prefix, local.build_suffix)
+  name      = format("%s-xclb-%s", local.project_id, local.build_region)
   namespace = var.xc_namespace
   labels = {
       "ves.io/app_type" = length(var.xc_app_type) != 0 ? volterra_app_type.app-type[0].name : null
   }
-  description = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)  
+  description = format("HTTPS loadbalancer object for %s origin server", local.project_id)  
   domains = [var.app_domain]
   advertise_on_public_default_vip = true
   default_route_pools {
@@ -85,7 +87,7 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
     content {
       api_groups_rules {
         metadata {
-          name = format("%s-apip-deny-rule-%s", local.project_prefix, local.build_suffix)
+          name = format("%s-apip-deny-rule-%s", local.project_id, local.region)
         }
         action {
           deny = true
@@ -95,7 +97,7 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
       }
       api_groups_rules {
         metadata {
-          name = format("%s-apip-allow-rule-%s", local.project_prefix, local.build_suffix)
+          name = format("%s-apip-allow-rule-%s", local.project_id, local.region)
         }
         action {
           deny = false
@@ -118,7 +120,7 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
         js_download_path = "/common.js"
         protected_app_endpoints {
           metadata {
-            name = format("%s-bot-rule-%s", local.project_prefix, local.build_suffix)
+            name = format("%s-bot-rule-%s", local.project_id, local.region)
           }
           http_methods = ["METHOD_POST", "METHOD_PUT"]
           mitigation {
@@ -158,7 +160,7 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
     for_each = var.xc_ddos_def ? [1] : []
     content {
       metadata {
-        name = format("%s-ddos-rule-%s", local.project_prefix, local.build_suffix)
+        name = format("%s-ddos-rule-%s", local.project_id, local.region)
       }
       block = true
       ddos_client_source {

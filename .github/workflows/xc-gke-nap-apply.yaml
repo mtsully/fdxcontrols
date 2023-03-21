@@ -158,7 +158,7 @@ jobs:
   terraform_nap:
     name: "NGINX App Protect"
     runs-on: ubuntu-latest
-    needs: terraform_eks
+    needs: terraform_gke
     defaults:
       run:
         working-directory: ./nap

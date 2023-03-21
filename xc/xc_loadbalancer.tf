@@ -29,7 +29,7 @@ resource "volterra_origin_pool" "op" {
 #AWS: name      = format("%s-xclb-%s", local.project_prefix, local.build_suffix)
 #     description = format("HTTPS loadbalancer object for %s origin server", local.project_prefix)  
 resource "volterra_http_loadbalancer" "lb_fdx_https" {
-  name      = format("%s-xclb-%s", local.project_id, local.build_region)
+  name      = format("%s-xclb-%s", local.project_id, local.region)
   namespace = var.xc_namespace
   labels = {
       "ves.io/app_type" = length(var.xc_app_type) != 0 ? volterra_app_type.app-type[0].name : null

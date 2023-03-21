@@ -1,6 +1,7 @@
+#AWS: name = format("%s-mud-app-set-%s", local.project_prefix, local.build_suffix)
 resource "volterra_app_setting" "mud-app-settings" {
   count = contains(var.xc_app_type, "mud") ? 1 : 0
-  name = format("%s-mud-app-set-%s", local.project_prefix, local.build_suffix)
+  name = format("%s-mud-app-set-%s", local.project_id, local.region)
   namespace = var.xc_namespace
   app_type_settings {
     app_type_ref {
@@ -36,10 +37,10 @@ resource "volterra_app_setting" "mud-app-settings" {
     }
   }
 }
-
+#AWS: name = format("%s-mud-mit-%s", local.project_prefix, local.build_suffix)
 resource "volterra_malicious_user_mitigation" "mud-mitigation" {
     count = contains(var.xc_app_type, "mud") ? 1 : 0
-    name = format("%s-mud-mit-%s", local.project_prefix, local.build_suffix)
+    name = format("%s-mud-mit-%s", local.project_id, local.region)
     namespace = var.xc_namespace
     mitigation_type {
         rules {

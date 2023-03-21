@@ -78,7 +78,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-gke-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
 
   terraform_gke:
@@ -152,7 +152,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-gke-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
 
   terraform_nap:
@@ -227,7 +227,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-gke-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
 
   terraform_fdx:
@@ -302,7 +302,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-gke-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
 
   terraform_xc:
@@ -376,5 +376,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-gke-nap' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false

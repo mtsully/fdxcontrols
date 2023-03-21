@@ -4,8 +4,8 @@
 #AWS: name                     = format("%s-xcw-%s", local.project_prefix, local.build_suffix)
 #     description              = format("WAF in block mode for %s", "${local.project_prefix}-xcw-${local.build_suffix}")
 resource "volterra_app_firewall" "waap-tf" {
-  name                     = format("%s-xcw-%s", local.project_id, local.region)
-  description              = format("WAF in block mode for %s", "${local.project_id}-xcw-${local.region}")
+  name                     = format("%s-xcw-%s", local.deployment_name, local.region)
+  description              = format("WAF in block mode for %s", "${local.deployment_name}-xcw-${local.region}")
   namespace                = var.xc_namespace
 
   // One of the arguments from this list "allow_all_response_codes allowed_response_codes" must be set

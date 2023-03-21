@@ -78,7 +78,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-gke-nap' && github.event_name == 'push'
         run: terraform destroy -auto-approve -input=false
   
   terraform_fdx:
@@ -153,7 +153,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-gke-nap' && github.event_name == 'push'
         run: terraform destroy -auto-approve -input=false
 
   terraform_nap:
@@ -228,7 +228,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-gke-nap' && github.event_name == 'push'
         run: terraform destroy -auto-approve -input=false
 
   terraform_gke:
@@ -303,7 +303,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-gke-nap' && github.event_name == 'push'
         run: terraform destroy -auto-approve -input=false
 
   terraform_infra:
@@ -378,5 +378,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-gke-nap' && github.event_name == 'push'
         run: terraform destroy -auto-approve -input=false

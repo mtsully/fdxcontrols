@@ -1,5 +1,6 @@
+#AWS: name = format("%s-pro-%s", local.project_prefix, local.build_suffix)
 resource "helm_release" "prometheus" {
-    name = format("%s-pro-%s", local.project_prefix, local.build_suffix)
+    name = format("%s-pro-%s", local.project_id, local.region)
     repository = "https://prometheus-community.github.io/helm-charts"
     chart = "prometheus"
     #version = "15.10.2"

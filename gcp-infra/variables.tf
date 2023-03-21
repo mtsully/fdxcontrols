@@ -1,7 +1,11 @@
 variable "project_id" {
-  description = "project id"
+  description = "GCP project id"
 }
 
 variable "region" {
-  description = "region"
+  description = "GCP region"
+}
+
+variable "deployment_name" {
+  description = "Deployment name"
 }

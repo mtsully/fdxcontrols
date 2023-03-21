@@ -8,6 +8,11 @@ output "project_id" {
   description = "GCloud Project ID"
 }
 
+output "deployment_name" {
+  value       = var.deployment_name
+  description = "Deployment name"
+}
+
 output "vpc_name" {
   value       = google_compute_network.vpc.name
   description = "GCloud VPC/Network Name"

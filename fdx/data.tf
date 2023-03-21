@@ -28,3 +28,7 @@ data "tfe_outputs" "gke" {
   organization = var.tf_cloud_organization
   workspace = "gke"
 }
+data "tfe_outputs" "nap" {
+  organization = var.tf_cloud_organization
+  workspace = "nap"
+}

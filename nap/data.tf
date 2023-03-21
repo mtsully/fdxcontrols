@@ -19,3 +19,11 @@ data "kubernetes_service_v1" "nginx-service" {
     namespace = helm_release.nginx-plus-ingress.namespace
   }
 }
+data "tfe_outputs" "gcp-infra" {
+  organization = var.tf_cloud_organization
+  workspace = "gcp-infra"
+}
+data "tfe_outputs" "gke" {
+  organization = var.tf_cloud_organization
+  workspace = "gke"
+}

@@ -6,7 +6,7 @@ kind: VirtualServer
 metadata:
   name: fdxri
 spec:
-  host: "*"
+  host: "fdx-ref-impl.sr.f5-cloud-demo.com"
   policies:
   - name: jwt-policy
   upstreams:

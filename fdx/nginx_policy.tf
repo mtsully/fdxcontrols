@@ -1,20 +1,14 @@
 resource "kubectl_manifest" "nginx_policy" {
     yaml_body = <<YAML
 apiVersion: k8s.nginx.org/v1
-kind: VirtualServer
+kind: Policy
 metadata:
-  name: fdxri
+  name: jwt-policy
 spec:
-  host: webapp.example.com
-  policies:
-  - name: jwt-policy
-  upstreams:
-  - name: fdxri
-    service: kubernetes_service.fdxri.metadata.0.name
-    port: 8080
-  routes:
-  - path: /
-    action:
-      pass: fdxri
+  jwt:
+    realm: fdx
+    token: $http_token
+    jwksURI: https://oidc-provider.fdx.f5-cloud-demo.com/jwks
+    keyCache: 1h
 YAML
 }

@@ -2,19 +2,19 @@
 apiVersion: k8s.nginx.org/v1
 kind: VirtualServer
 metadata:
-  name: webapp
+  name: fdxri
 spec:
   host: webapp.example.com
   policies:
   - name: jwt-policy
   upstreams:
-  - name: webapp
-    service: webapp-svc
-    port: 80
+  - name: fdxri
+    service: kubernetes_service.fdxri.metadata.0.name
+    port: 8080
   routes:
   - path: /
     action:
-      pass: webapp
+      pass: fdxri
  
  ---
  
@@ -28,3 +28,4 @@ spec:
     token: $http_token
     jwksURI: http://keycloak.default.svc.cluster.local:8080/realms/jwks-example/protocol/openid-connect/certs
     keyCache: 1h
+

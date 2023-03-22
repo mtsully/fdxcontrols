@@ -6,7 +6,7 @@ kind: VirtualServer
 metadata:
   name: fdxri
 spec:
-  host: webapp.example.com
+  host: data.tfe_outputs.nap.values.external_name
   policies:
   - name: jwt-policy
   upstreams:

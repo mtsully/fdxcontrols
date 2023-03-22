@@ -14,7 +14,7 @@ output "kubernetes_cluster_client_certificate" {
 }
 
 output "kubernetes_cluster_client_key" {
-  value       = nonsensitive(google_container_cluster.primary.master_auth.0.client_key)
+  value       = google_container_cluster.primary.master_auth.0.client_key
   description = "GKE Cluster Client Key"
 }
 

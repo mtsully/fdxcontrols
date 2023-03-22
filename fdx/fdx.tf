@@ -61,7 +61,7 @@ resource "kubernetes_deployment" "postgres-container" {
   metadata {
     name = "postgres-container"
     labels = {
-      app = "postgres_container"
+      app = "postgres-container"
     }
   }
   spec {
@@ -69,13 +69,13 @@ resource "kubernetes_deployment" "postgres-container" {
 
     selector {
       match_labels = {
-        app = "postgres_container"
+        app = "postgres-container"
       }
     }
     template {
       metadata {
         labels = {
-          app = "postgres_container"
+          app = "postgres-container"
         }
       }
       spec {
@@ -99,7 +99,7 @@ resource "kubernetes_service" "postgres" {
   metadata {
     name = "postgres"
     labels = {
-      app = "postgres_container"
+      app = "postgres-container"
       service = "postgres"
     }
   }
@@ -110,7 +110,7 @@ resource "kubernetes_service" "postgres" {
       target_port = "5432"
     }
     selector = {
-      app = "postgres_container"
+      app = "postgres-container"
     }
     type = "ClusterIP"
   }

@@ -19,6 +19,10 @@ resource "kubernetes_deployment" "fdxri" {
         }
       }
       spec {
+        host_aliases {
+          ip = "127.0.0.1"
+          hostnames = ["postgres_container"]
+        }
         container {
           name  = "fdxri"
           image = "docker-registry.financialdataexchange.org/fdxri_dc_tomcat:latest"

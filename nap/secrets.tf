@@ -12,7 +12,7 @@ resource "kubernetes_secret" "docker-registry" {
                 "${var.nginx_registry}" = {
                     "username" = file("${var.nginx_jwt}")
                     "password" = ""
-                    "auth"     = base64encode(file("${var.nginx_jwt}")":")
+                    "auth"     = base64encode(file("${var.nginx_jwt}"))
                 }
             }
         })

@@ -1,16 +1,20 @@
-resource "kubectl_manifest" "test" {
+resource "kubectl_manifest" "virtual_server" {
     yaml_body = <<YAML
-apiVersion: v1
-kind: Service
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
 metadata:
-  name: name-here
+  name: fdxri
 spec:
-  ports:
-    - name: https
-      port: 443
-      targetPort: 8443
-    - name: http
-      port: 80
-      targetPort: 9090
+  host: webapp.example.com
+  policies:
+  - name: jwt-policy
+  upstreams:
+  - name: fdxri
+    service: kubernetes_service.fdxri.metadata.0.name
+    port: 8080
+  routes:
+  - path: /
+    action:
+      pass: fdxri
 YAML
 }

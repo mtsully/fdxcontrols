@@ -20,5 +20,5 @@ locals {
   origin_nginx = try(data.tfe_outputs.nap.values.external_ip, "")
   origin_server = local.origin_nginx
   origin_port = try(data.tfe_outputs.nap.values.external_port, "80")
-  dns_origin_pool = local.origin_nginx != "" ? true : false 
+  dns_origin_pool = false 
 }

@@ -26,6 +26,6 @@ spec:
   jwt:
     realm: MyProductAPI
     token: $http_token
-    jwksURI: https://oidc-provider.fdx.f5-cloud-demo.com
+    jwksURI: https://oidc-provider.fdx.f5-cloud-demo.com/jwks
     keyCache: 1h
 

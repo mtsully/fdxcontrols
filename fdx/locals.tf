@@ -16,6 +16,7 @@ locals {
   region = data.tfe_outputs.gcp-infra.values.region
   kubernetes_cluster_name = data.tfe_outputs.gke.values.kubernetes_cluster_name
   kubernetes_cluster_host = data.tfe_outputs.gke.values.kubernetes_cluster_host
+  kubernetes_cluster_access_token =  data.tfe_outputs.gke.values.kubernetes_cluster_access_token
   kubernetes_cluster_client_certificate = data.tfe_outputs.gke.values.kubernetes_cluster_client_certificate
   kubernetes_cluster_client_key = data.tfe_outputs.gke.values.kubernetes_cluster_client_key
   kubernetes_cluster_ca_certificate =  data.tfe_outputs.gke.values.kubernetes_cluster_ca_certificate

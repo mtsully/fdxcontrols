@@ -57,9 +57,9 @@ resource "kubernetes_service" "fdxri" {
   }
 }
 
-resource "kubernetes_deployment" "postgres_container" {
+resource "kubernetes_deployment" "postgres-container" {
   metadata {
-    name = "postgres_container"
+    name = "postgres-container"
     labels = {
       app = "postgres_container"
     }

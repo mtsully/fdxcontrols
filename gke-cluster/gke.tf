@@ -1,7 +1,5 @@
 
-
 data "google_client_config" "provider" {}
-
 
 # GKE cluster
 resource "google_container_cluster" "primary" {

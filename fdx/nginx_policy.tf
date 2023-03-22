@@ -6,7 +6,7 @@ metadata:
   name: jwt-policy
 spec:
   jwt:
-    realm: fdx
+    realm: "https://my.api.example.com/resource/32178"
     token: $http_token
     jwksURI: https://oidc-provider.fdx.f5-cloud-demo.com/jwks
     keyCache: 1h

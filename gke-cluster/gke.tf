@@ -1,4 +1,8 @@
 
+
+data "google_client_config" "provider" {}
+
+
 # GKE cluster
 resource "google_container_cluster" "primary" {
   name     = "${local.deployment_name}-gke"

@@ -26,17 +26,15 @@ provider "google" {
 }
 
 provider "kubernetes" {
-    host = "https://${local.kubernetes_cluster_host}"
-    client_certificate = base64decode(local.kubernetes_cluster_client_certificate)
-    client_key = base64decode(local.kubernetes_cluster_client_key)
-    cluster_ca_certificate = base64decode(local.kubernetes_cluster_ca_certificate)
+  host = "https://${local.kubernetes_cluster_host}"
+  token = local.kubernetes_cluster_access_token
+  cluster_ca_certificate = base64decode(local.kubernetes_cluster_ca_certificate)    
 }
 
 provider "helm" {
     kubernetes {
-        host = "https://${local.kubernetes_cluster_host}"
-        client_certificate = base64decode(local.kubernetes_cluster_client_certificate)
-        client_key = base64decode(local.kubernetes_cluster_client_key)
-        cluster_ca_certificate = base64decode(local.kubernetes_cluster_ca_certificate)  
+      host = "https://${local.kubernetes_cluster_host}"
+      token = local.kubernetes_cluster_access_token
+      cluster_ca_certificate = base64decode(local.kubernetes_cluster_ca_certificate)   
     }
 }

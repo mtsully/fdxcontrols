@@ -80,7 +80,7 @@ resource "kubernetes_deployment" "postgres-container" {
       }
       spec {
         container {
-          name  = "postgres_container"
+          name  = "postgres-container"
           image = "docker-registry.financialdataexchange.org/fdxri_pgdb:latest"
           port {
             container_port = 5432

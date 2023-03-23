@@ -7,12 +7,6 @@ resource "volterra_route" "default" {
     // One of the arguments from this list "inherited_bot_defense_javascript_injection bot_defense_javascript_injection" must be set
     inherited_bot_defense_javascript_injection = true
 
-    bot_defense_javascript_injection_inline_mode {
-      element_selector = "value"
-      insert_content   = "value"
-      position         = "position"
-    }
-    
     match {
       path {
         // One of the arguments from this list "prefix path regex" must be set

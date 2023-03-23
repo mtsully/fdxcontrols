@@ -45,9 +45,8 @@ resource "volterra_route" "default" {
       // One of the arguments from this list "waf waf_rules app_firewall" must be set
       waf {
         waf {
-          name      = "test1"
-          namespace = "staging"
-          tenant    = "acmecorp"
+          name      = volterra_app_firewall.waap-tf.name
+          namespace = var.xc_namespace
         }
       }
     }

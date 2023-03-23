@@ -26,7 +26,7 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
           port {
             container_port = 8080
           }
-          image_pull_policy = "IfNotPresent"
+          image_pull_policy = "Always"
         }
       }
     }

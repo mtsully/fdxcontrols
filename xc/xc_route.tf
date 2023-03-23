@@ -1,6 +1,7 @@
 resource "volterra_route" "default" {
-  name      = "fdx-route"
-  namespace = "staging"
+  name                   = format("%s-xcop-%s", local.deployment_name, local.region)
+  namespace              = var.xc_namespace
+  description            = format("Route pointing to origin server %s", local.origin_server)
 
   routes {
     // One of the arguments from this list "inherited_bot_defense_javascript_injection bot_defense_javascript_injection" must be set

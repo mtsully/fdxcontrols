@@ -66,7 +66,7 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
 
   routes {
     simple_route {
-      auto_host_rewrite = false
+      disable_host_rewrite = true
       origin_pools {
         pool {
           name  = format("%s-xcop-%s", local.deployment_name, local.region)

@@ -11,7 +11,7 @@ spec:
   - name: jwt-policy
   upstreams:
   - name: fdxri
-    service: kubernetes_service.fdxri.metadata.0.name
+    service: kubernetes_service.fdx-gen-stub.metadata.0.name
     port: 8080
   routes:
   - path: /

@@ -12,10 +12,7 @@ resource "volterra_route" "default" {
       insert_content   = "value"
       position         = "position"
     }
-
-    disable_custom_script = true
-    disable_location_add  = true
-
+    
     match {
       path {
         // One of the arguments from this list "prefix path regex" must be set

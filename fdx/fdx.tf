@@ -31,6 +31,7 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
       }
     }
   }
+  
 }
 
 resource "kubernetes_service" "fdx-gen-stub" {

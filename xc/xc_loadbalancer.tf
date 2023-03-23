@@ -64,6 +64,20 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
   user_id_client_ip = true
   source_ip_stickiness = true
 
+  routes = [
+    simple_route {
+      auto_host_rewrite = false
+      origin_pools = [
+        pool {
+          
+        }
+      ]
+      path {
+        prefix = "/"
+      }
+    }
+  ]
+  
 #API Protection Configuration
 
   dynamic "enable_api_discovery" {

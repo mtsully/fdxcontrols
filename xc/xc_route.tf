@@ -17,48 +17,11 @@ resource "volterra_route" "default" {
     disable_location_add  = true
 
     match {
-      headers {
-        invert_match = true
-        name         = "Content-Type"
-
-        // One of the arguments from this list "exact regex presence" must be set
-        regex = "regex"
-      }
-
-      http_method = "http_method"
-
       path {
         // One of the arguments from this list "prefix path regex" must be set
-        prefix = "/register/"
-      }
-
-      query_params {
-        key = "assignee_username"
-
-        // One of the arguments from this list "exact regex" must be set
-        regex = "regex"
+        prefix = "/"
       }
     }
-
-    request_headers_to_add {
-      append = true
-      name   = "value"
-
-      // One of the arguments from this list "value secret_value" must be set
-      value = "value"
-    }
-
-    request_headers_to_remove = ["host"]
-
-    response_headers_to_add {
-      append = true
-      name   = "value"
-
-      // One of the arguments from this list "value secret_value" must be set
-      value = "value"
-    }
-
-    response_headers_to_remove = ["host"]
 
     // One of the arguments from this list "route_destination route_redirect route_direct_response" must be set
 

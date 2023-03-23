@@ -32,7 +32,6 @@ resource "volterra_route" "default" {
 
       // One of the arguments from this list "host_rewrite auto_host_rewrite" must be set
       auto_host_rewrite = false
-      prefix_rewrite = "/"
     }
     service_policy {
       // One of the arguments from this list "disable context_extensions" must be set

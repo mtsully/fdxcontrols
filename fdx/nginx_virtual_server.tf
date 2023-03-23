@@ -7,8 +7,6 @@ metadata:
   name: fdxri
 spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
-  policies:
-  - name: jwt-policy
   upstreams:
   - name: fdxri
     service: kubernetes_service.fdx-gen-stub.metadata.0.name

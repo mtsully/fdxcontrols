@@ -67,12 +67,12 @@ resource "volterra_http_loadbalancer" "lb_fdx_https" {
   routes {
     simple_route {
       auto_host_rewrite = false
-      origin_pools = [
+      origin_pools {
         pool {
           name  = format("%s-xcop-%s", local.deployment_name, local.region)
           namespace = var.xc_namespace
         }
-      ]
+      }
       path {
         prefix = "/"
       }

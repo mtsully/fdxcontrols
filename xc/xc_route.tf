@@ -76,7 +76,7 @@ resource "volterra_route" "default" {
       }
 
       // One of the arguments from this list "host_rewrite auto_host_rewrite" must be set
-      host_rewrite = "one.volterra.com"
+      auto_host_rewrite = false
 
       mirror_policy {
         cluster {

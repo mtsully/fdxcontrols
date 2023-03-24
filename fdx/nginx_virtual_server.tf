@@ -10,7 +10,7 @@ spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
   upstreams:
   - name: fdxri
-    service: fdx-gen-stub
+    service: fdx-gen-stub.default
     port: 8080
   routes:
   - path: /

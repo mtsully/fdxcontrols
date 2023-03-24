@@ -5,12 +5,12 @@ apiVersion: k8s.nginx.org/v1
 kind: VirtualServer
 metadata:
   name: fdxri
-  namespace: nginx-ingress
 spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
+  ingressClassName: nginx   
   upstreams:
-  - name: fdxri-bridge-service
-    service: fdxri-bridge-service
+  - name: fdx-gen-stub
+    service: fdx-gen-stub
     port: 8080
   routes:
   - path: /

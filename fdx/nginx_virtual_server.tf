@@ -9,13 +9,13 @@ metadata:
 spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
   upstreams:
-  - name: fdxri
-    service: fdx-gen-stub.default
+  - name: fdxri-bridge-service
+    service: fdxri-bridge-service
     port: 8080
   routes:
   - path: /
     action:
-      pass: fdxri
+      pass: fdxri-bridge-service
 YAML
 }
 

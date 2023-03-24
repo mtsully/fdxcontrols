@@ -4,7 +4,7 @@ apiVersion: k8s.nginx.org/v1
 kind: Policy
 metadata:
   name: jwt-policy
-  namespace: kubernetes_namespace.nginx-ingress.metadata[0].name
+  namespace: nginx-ingress
 spec:
   jwt:
     realm: "https://my.api.example.com/resource/32178"

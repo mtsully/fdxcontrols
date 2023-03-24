@@ -4,7 +4,7 @@ resource "kubernetes_service" "fdxri_bridge_service" {
     namespace = "nginx-ingress"
   }
   spec {
-    externalName = "fdx-gen-stub.default.svc.cluster.local"
+    external_name = "fdx-gen-stub.default.svc.cluster.local"
     type = "ExternalName"
   }
 }

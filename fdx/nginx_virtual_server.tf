@@ -5,6 +5,7 @@ apiVersion: k8s.nginx.org/v1
 kind: VirtualServer
 metadata:
   name: fdxri
+  namespace: kubernetes_namespace.nginx-ingress.metadata[0].name
 spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
   upstreams:

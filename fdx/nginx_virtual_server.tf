@@ -15,7 +15,7 @@ spec:
   routes:
   - path: /
     action:
-      pass: fdxri-bridge-service
+      pass: fdx-gen-stub
 YAML
 }
 

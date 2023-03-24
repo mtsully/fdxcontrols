@@ -3,6 +3,7 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
     name = "fdx-gen-stub"
     labels = {
       app = "fdx-gen-stub"
+      dummy = "tmp"
     }
   }
   spec {

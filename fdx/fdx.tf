@@ -21,8 +21,16 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
       }
       spec {
         container {
-          name  = "fdx-gen-stub"
-          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server"
+          name  = "fdx-openapi-mock" 
+          image = "muonsoft/openapi-mock"
+          env {
+              name = "OPENAPI_MOCK_SPECIFICATION_URL"
+              value = "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"
+          }
+          
+#          name  = "fdx-gen-stub"
+#          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server"
+          
 
           port {
             container_port = 8080

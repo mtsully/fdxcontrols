@@ -22,7 +22,7 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
       spec {
         container {
           name  = "fdx-gen-stub"
-          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server"
+          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server:latest"
 
           port {
             container_port = 8080

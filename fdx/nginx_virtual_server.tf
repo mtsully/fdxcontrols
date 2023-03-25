@@ -7,6 +7,8 @@ metadata:
   name: fdxri
 spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
+  policies:
+  - name: jwt-policy    
   ingressClassName: nginx   
   upstreams:
   - name: fdx-gen-stub

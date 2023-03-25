@@ -21,24 +21,34 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
       }
       spec {
         container {
-          name  = "fdx-openapi-mock" 
-          image = "muonsoft/openapi-mock"
-          env {
-              name = "OPENAPI_MOCK_SPECIFICATION_URL"
-              value = "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"
+          name  = "fdx-openapi-prism-mock" 
+          image = "stoplight/prism:4"        
+          command = ["mock"]
+          args = ["-h 0.0.0.0", "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"]         
+  
+          port {
+            container_port = 4010
+            host_port   = 8080
           }
-          env {
-              name = "OPENAPI_MOCK_USE_EXAMPLES"
-              value = "if_present"
-          }
+          
+#          name  = "fdx-openapi-mock" 
+#          image = "muonsoft/openapi-mock"
+#          env {
+#              name = "OPENAPI_MOCK_SPECIFICATION_URL"
+#              value = "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"
+#          }
+#          env {
+#              name = "OPENAPI_MOCK_USE_EXAMPLES"
+#              value = "if_present"
+#          }
           
 #          name  = "fdx-gen-stub"
-#          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server"
-          
+#          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server"          
 
-          port {
-            container_port = 8080
-          }
+#          port {
+#            container_port = 8080
+#          }
+          
           image_pull_policy = "Always"
         }
       }

@@ -23,8 +23,7 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
         container {
           name  = "fdx-openapi-prism-mock" 
           image = "stoplight/prism:4"        
-          command = ["mock"]
-          args = ["-h", "0.0.0.0", "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"]         
+          args = ["mock", "-h", "0.0.0.0", "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"]         
   
           port {
             container_port = 4010

@@ -27,6 +27,10 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
               name = "OPENAPI_MOCK_SPECIFICATION_URL"
               value = "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"
           }
+          env {
+              name = "OPENAPI_MOCK_USE_EXAMPLES"
+              value = "if_present"
+          }
           
 #          name  = "fdx-gen-stub"
 #          image = "registry.gitlab.com/f5-security-test/fdx-generated-stub-server"

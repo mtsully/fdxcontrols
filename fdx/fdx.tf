@@ -24,11 +24,10 @@ resource "kubernetes_deployment" "fdx-gen-stub" {
           name  = "fdx-openapi-prism-mock" 
           image = "stoplight/prism:4"        
           command = ["mock"]
-          args = ["-h 0.0.0.0", "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"]         
+          args = ["-h", "0.0.0.0", "https://raw.githubusercontent.com/vtobi/fdx-controls-reference-implementation/main/fdx/fdxapi.yaml"]         
   
           port {
             container_port = 4010
-            host_port   = 8080
           }
           
 #          name  = "fdx-openapi-mock" 
@@ -69,7 +68,7 @@ resource "kubernetes_service" "fdx-gen-stub" {
     port {
       protocol    = "TCP"
       port        = 8080
-      target_port = "8080"
+      target_port = 4010
     }
     selector = {
       app = "fdx-gen-stub"

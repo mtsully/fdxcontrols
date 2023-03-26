@@ -30,3 +30,10 @@ resource "google_storage_bucket_access_control" "public_rule" {
   entity = "allUsers"
 }
 
+# Make bucket public
+#resource "google_storage_bucket_iam_member" "member" {
+#  provider = google-beta
+#  bucket   = google_storage_bucket.default.name
+#  role     = "roles/storage.objectViewer"
+#  member   = "allUsers"
+#}

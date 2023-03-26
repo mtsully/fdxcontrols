@@ -1,11 +1,3 @@
-variable "bucket_name" {
-  default     = "max-bucket-for-testing"
-}
-
-provider "aws" {
-  region  = var.aws_region
-  profile = var.aws_profile
-}
 
 resource "aws_s3_bucket" "artifacts" {
   bucket = var.bucket_name

@@ -1,1 +1,31 @@
+id: FDX-API-Security-Tests
 
+info:
+  name: FDX API Security Tests
+  author: vtobi
+  severity: critical
+  description: |
+    FDX API Security Tests.
+  reference:
+    - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
+  tags: fdx
+
+
+requests:
+  - raw:
+      - |
+        GET /fdx/v4/accounts HTTP/1.1
+        Host: {{Hostname}}
+        Connection: keep-alive
+        
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "commandResult"
+          - "8831-2202-EVC"
+        condition: and
+
+# Enhanced by mp on 2022/05/19

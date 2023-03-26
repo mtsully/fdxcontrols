@@ -21,11 +21,7 @@ requests:
     stop-at-first-match: true
     matchers-condition: and
     matchers:
-      - type: word
-        part: body
-        words:
-          - "commandResult"
-          - "8831-2202-EVC"
-        condition: and
-
-# Enhanced by mp on 2022/05/19
+      - type: status
+        part: header
+        status:
+          - 200

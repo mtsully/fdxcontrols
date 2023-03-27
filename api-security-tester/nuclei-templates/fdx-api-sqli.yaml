@@ -11,13 +11,7 @@ info:
     - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
   tags: fdx
 
-variables:
-  accountIds: "value"
-  startTime: "{{base64('hello')}}"
-  endTime:
-  offset:
-  limit:
-  
+ 
 requests:
   - raw:
       - |

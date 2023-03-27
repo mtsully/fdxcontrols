@@ -21,7 +21,7 @@ requests:
         
     payloads:
       sqli:    
-         -  "1 or 1"
+         - " 1 or 1"
          - " %22%22|0;#"
          - " ''"
          - " ' or#"

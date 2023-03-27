@@ -11,11 +11,17 @@ info:
     - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
   tags: fdx
 
-
+variables:
+  accountIds: "value"
+  startTime: "{{base64('hello')}}"
+  endTime:
+  offset:
+  limit:
+  
 requests:
   - raw:
       - |
-        GET /fdx/v4/accounts HTTP/1.1
+        GET /fdx/v4/accounts?accountIds={{accountIds}}&startTime={{startTime}}&endTime={{endTime}}&resultType=lightweight&offset={{offset}}&limit={{limit}}" HTTP/1.1
         Host: {{Hostname}}
         Connection: keep-alive
         

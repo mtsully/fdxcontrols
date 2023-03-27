@@ -3,7 +3,7 @@ id: FDX-API-Security-Tests-SQLi
 
 info:
   name: FDX API Sanity Tests SQLi
-  author: vtobi
+  author: 0x240x23elu & OFJAAAH & vtobi
   severity: critical
   description: |
     FDX API Sanity SQL injection Tests .

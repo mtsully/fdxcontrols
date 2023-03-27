@@ -1,12 +1,12 @@
 
-id: FDX-API-Security-Tests
+id: FDX-API-Security-Tests-SQLi
 
 info:
-  name: FDX API Security Tests
+  name: FDX API Sanity Tests SQLi
   author: vtobi
   severity: critical
   description: |
-    FDX API Security Tests.
+    FDX API Sanity SQL injection Tests .
   reference:
     - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
   tags: fdx

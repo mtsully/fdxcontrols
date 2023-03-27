@@ -1,12 +1,12 @@
 
-id: FDX-API-Security-Tests
+id: FDX-API-Sanity-Tests
 
 info:
-  name: FDX API Security Tests
+  name: FDX API Sanity Tests
   author: vtobi
   severity: critical
   description: |
-    FDX API Security Tests.
+    FDX API Sanity Tests.
   reference:
     - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
   tags: fdx
@@ -23,6 +23,7 @@ requests:
     matchers-condition: and
     matchers:
       - type: status
+        negative: true
         part: header
         status:
           - 200

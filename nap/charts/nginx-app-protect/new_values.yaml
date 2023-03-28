@@ -15,5 +15,6 @@ controller:
     initialDelaySeconds: 30
   serviceAccount:
     imagePullSecretName: regcred
+  logLevel: 3  
 prometheus:
   create: true

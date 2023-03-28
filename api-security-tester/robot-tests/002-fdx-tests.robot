@@ -5,7 +5,7 @@ Library     OpenApiDriver
 ...             base_path=/fdx/v4
 ...             security_token=${JWT}
 ...             response_validation=DISABLED
-
+Library    Process
 Test Template      Validate Using Test Endpoint Keyword
 
 *** Variables ***

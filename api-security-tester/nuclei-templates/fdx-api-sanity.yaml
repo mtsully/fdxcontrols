@@ -15,8 +15,9 @@ info:
 requests:
   - method: GET
     path:
-      - "/fdx/v4/accounts"
-      
+      - "{{RootURL}}/fdx/v4/accounts"
+    headers:
+      Authorization: "Bearer {{JWT}}"  
     stop-at-first-match: true
     matchers-condition: and
     matchers:

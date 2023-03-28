@@ -13,13 +13,11 @@ info:
 
 
 requests:
-  - raw:
-      - |
-        GET /fdx/v4/accounts HTTP/1.1
-        Host: {{Hostname}}
-        Authorization: Bearer {{JWT}}
-        Connection: keep-alive
-        
+  - method: GET
+    path:
+      - "/fdx/v4/accounts"
+    headers:
+      Authorization: "Bearer {{JWT}}"        
     stop-at-first-match: true
     matchers-condition: and
     matchers:

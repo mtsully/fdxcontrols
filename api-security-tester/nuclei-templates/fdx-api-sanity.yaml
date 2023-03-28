@@ -17,6 +17,7 @@ requests:
       - |
         GET /fdx/v4/accounts HTTP/1.1
         Host: {{Hostname}}
+        Authorization: Bearer {{JWT}}
         Connection: keep-alive
         
     stop-at-first-match: true

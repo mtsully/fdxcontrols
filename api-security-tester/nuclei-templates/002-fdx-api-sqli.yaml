@@ -14,7 +14,7 @@ info:
 requests:
   - raw:
       - |
-        GET /fdx/v4/accounts?accountIds={{sqli}}&startTime={{sqli}}&endTime={{sqli}}&resultType=lightweight&offset={{sqli}}&limit={{sqli}} HTTP/1.1
+        GET /fdx/v4/accounts?accountIds=§sqli§&startTime=§sqli§&endTime=§sqli§&resultType=lightweight&offset=§sqli§&limit=§sqli§ HTTP/1.1
         Host: {{Hostname}}
         Authorization: Bearer {{JWT}} 
         Connection: keep-alive

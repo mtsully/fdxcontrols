@@ -5,7 +5,7 @@ controller:
     enable: false
   enableSnippets: true
   image:
-    repository: nginx/nginx-ic-nap-dos/nginx-plus-ingress
+    repository: private-registry.nginx.com/nginx-ic-nap-dos/nginx-plus-ingress
     tag: 3.1.0
   nginxplus: true
   nginxStatus:

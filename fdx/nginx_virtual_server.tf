@@ -14,6 +14,8 @@ spec:
   - name: fdx-gen-stub
     service: fdx-gen-stub
     port: 8080
+    tls:
+        enable: false
   routes:
   - path: /
     action:

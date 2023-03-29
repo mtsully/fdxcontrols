@@ -1,6 +1,6 @@
 data "kubernetes_service_v1" "nginx-service" {
   metadata {
-    name = format("%s-%s", helm_release.nginx-plus-ingress.name, helm_release.nginx-plus-ingress.chart)
+    name = format("%s-%s-controller", helm_release.nginx-plus-ingress.name, helm_release.nginx-plus-ingress.chart)
     namespace = helm_release.nginx-plus-ingress.namespace
   }
 }

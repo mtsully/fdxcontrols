@@ -7,7 +7,6 @@ metadata:
 spec:
   jwt:
     realm: https://my.api.example.com/resource/32178
-    jwksURI: https://oidc-provider.fdx.f5-cloud-demo.com/jwks
-    keyCache: 1h
+    secret: jwk-secret
 YAML
 }

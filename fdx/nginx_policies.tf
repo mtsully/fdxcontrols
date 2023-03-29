@@ -21,6 +21,6 @@ metadata:
 spec:
   waf:
     enable: true
-    apPolicy: "default/dataguard-alarm"
+    apPolicy: "default/api-security-blocking"
 YAML
 }

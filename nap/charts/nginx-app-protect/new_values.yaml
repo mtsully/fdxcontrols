@@ -17,7 +17,8 @@ controller:
     imagePullSecretName: regcred
   config:
     entries:
-      log-format:  '$remote_addr - $remote_user [$time_local] "$request" $status  "$http_authorization"'    
+      log-format:  '$remote_addr - $remote_user [$time_local] "$request" $status  "$http_authorization"'
+      resolver-addresses: 8.8.8.8
 prometheus:
   create: true
   

@@ -7,6 +7,6 @@ metadata:
 spec:
   jwt:
     realm: https://my.api.example.com/resource/32178
-    secret: jwk-secret
+    secret: fdx-jwks-secret
 YAML
 }

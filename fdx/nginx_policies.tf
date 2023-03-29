@@ -21,7 +21,7 @@ metadata:
 spec:
   waf:
     enable: true
-    apPolicy: "api-security-blocking"
+    apPolicy: "default/api-security-blocking"
     securityLogs:
         - enable: true
           apLogConf: "default/logconf"

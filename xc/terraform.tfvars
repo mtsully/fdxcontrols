@@ -26,4 +26,4 @@ xc_bot_def = false
 xc_ddos = false
 
 #XC Malicious User Detection
-xc_mud = true
+xc_mud = false

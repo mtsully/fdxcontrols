@@ -1,5 +1,5 @@
 resource "kubectl_manifest" "nginx_virtual_server" {
-    depends_on = [kubectl_manifest.nginx_policy]
+    depends_on = [kubectl_manifest.nginx_jwt_policy, kubectl_manifest.nginx_waf_policy]
     yaml_body = <<YAML
 apiVersion: k8s.nginx.org/v1
 kind: VirtualServer

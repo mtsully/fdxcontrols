@@ -47,7 +47,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | xc-nap      | infra, eks, nap, arcadia, xc    |
   | xc-nap-api  | infra, eks, nap, arcadia, xc    |
   | xc-nap-bot  | infra, eks, nap, arcadia, xc    |
-  | xc-gke-nap  | gcp-infra, gke, gcp-storage-bucket, api-security-tester, nap, fdx, xc    |
+  | xc-gke-nap  | gcp-infra, gke, nap, fdx, xc, gcp-storage-bucket, api-security-tester    |
 
 * **Workspace Sharing:** Under the settings for each Workspace, set the **Remote state sharing** to share with each Workspace created.
   

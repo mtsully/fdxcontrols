@@ -102,6 +102,13 @@ resource "volterra_http_loadbalancer" "oidc-provider-lb" {
       cookie_expiry   = js_challenge.value["cookie_expiry"]
     }
   }
+  more_option {
+    request_headers_to_add {
+      name = "X-Forwarded-Proto"
+      value = "$[scheme]"
+      append = false
+    }
+  }  
 }
 
 resource "volterra_origin_pool" "oidc-proxy-pool" {
@@ -198,6 +205,13 @@ resource "volterra_http_loadbalancer" "oidc-proxy-lb" {
     content {
       js_script_delay = js_challenge.value["js_script_delay"]
       cookie_expiry   = js_challenge.value["cookie_expiry"]
+    }
+  }
+  more_option {
+    request_headers_to_add {
+      name = "X-Forwarded-Proto"
+      value = "$[scheme]"
+      append = false
     }
   }
 }

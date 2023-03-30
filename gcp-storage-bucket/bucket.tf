@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket" {
-  name     = "static-content-bucket"
+  name     = var.bucket_name
   location = "US"
   force_destroy = true
 

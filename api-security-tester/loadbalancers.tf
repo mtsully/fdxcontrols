@@ -32,31 +32,44 @@ resource "volterra_app_firewall" "oidc-firewall" {
   blocking                 = var.blocking
 }
 
-#resource "volterra_http_loadbalancer" "oidc-provider-lb" {
-#  depends_on = [time_sleep.wait_namespace]
-#  name                            = format("%s-oidc-provider-lb", var.adn_name)
-#  namespace                       = local.namespace
-#  description                     = format("HTTPS loadbalancer object for %s-oidc-provider origin server", var.adn_name)
-#  domains                         = [format("oidc-provider.%s", var.app_domain)]
-#  advertise_on_public_default_vip = true
+resource "volterra_http_loadbalancer" "oidc-provider-lb" {
+  depends_on = [time_sleep.wait_namespace]
+  name                            = format("%s-oidc-provider-lb", var.adn_name)
+  namespace                       = local.namespace
+  description                     = format("HTTPS loadbalancer object for %s-oidc-provider origin server", var.adn_name)
+  domains                         = [format("fdx-oidc-provider.%s", var.app_domain)]
+  advertise_on_public_default_vip = true
 #  default_route_pools {
 #    pool {
 #      name      = volterra_origin_pool.oidc-provider-pool.name
 #      namespace = local.namespace
 #    }
 #  }
-#
+  routes {
+    simple_route {
+      disable_host_rewrite = true
+      origin_pools {
+        pool {
+          name  = volterra_origin_pool.oidc-provider-pool.name
+          namespace = local.namespace
+        }
+      }
+      path {
+        prefix = "/"
+      }
+    }
+  }
 #  http {
 #    dns_volterra_managed = true
 #    port                 = "80"
 #  }
 #
-#  https_auto_cert {
-#    add_hsts      = var.enable_hsts
-#    http_redirect = var.enable_redirect
-#    no_mtls       = true
-#  }
-#
+  https_auto_cert {
+    add_hsts      = var.enable_hsts
+    http_redirect = var.enable_redirect
+    no_mtls       = true
+  }
+
 #  https {
 #    http_redirect = false
 #    add_hsts = false
@@ -73,23 +86,23 @@ resource "volterra_app_firewall" "oidc-firewall" {
 #    }
 #  }
 #
-#  app_firewall {
-#    name      = volterra_app_firewall.oidc-firewall.name
-#    namespace = local.namespace
-#  }
-#  disable_waf                     = false
-#  disable_rate_limit              = true
-#  round_robin                     = true
-#  service_policies_from_namespace = true
-#  no_challenge                    = var.disable_js_challenge
-#  dynamic "js_challenge" {
-#    for_each = local.js_delay_list
-#    content {
-#      js_script_delay = js_challenge.value["js_script_delay"]
-#      cookie_expiry   = js_challenge.value["cookie_expiry"]
-#    }
-#  }
-#}
+  app_firewall {
+    name      = volterra_app_firewall.oidc-firewall.name
+    namespace = local.namespace
+  }
+  disable_waf                     = false
+  disable_rate_limit              = true
+  round_robin                     = true
+  service_policies_from_namespace = true
+  no_challenge                    = var.disable_js_challenge
+  dynamic "js_challenge" {
+    for_each = local.js_delay_list
+    content {
+      js_script_delay = js_challenge.value["js_script_delay"]
+      cookie_expiry   = js_challenge.value["cookie_expiry"]
+    }
+  }
+}
 
 resource "volterra_origin_pool" "oidc-proxy-pool" {
   depends_on = [time_sleep.wait_namespace]
@@ -117,31 +130,44 @@ resource "volterra_origin_pool" "oidc-proxy-pool" {
 }
 
 
-#resource "volterra_http_loadbalancer" "oidc-proxy-lb" {
-#  depends_on = [time_sleep.wait_namespace]
-#  name                            = format("%s-oidc-proxy-lb", var.adn_name)
-#  namespace                       = local.namespace
-#  description                     = format("HTTPS loadbalancer object for %s-oidc-proxy origin server", var.adn_name)
-#  domains                         = [format("oidc-proxy.%s", var.app_domain)]
-#  advertise_on_public_default_vip = true
+resource "volterra_http_loadbalancer" "oidc-proxy-lb" {
+  depends_on = [time_sleep.wait_namespace]
+  name                            = format("%s-oidc-proxy-lb", var.adn_name)
+  namespace                       = local.namespace
+  description                     = format("HTTPS loadbalancer object for %s-oidc-proxy origin server", var.adn_name)
+  domains                         = [format("fdx-oidc-proxy.%s", var.app_domain)]
+  advertise_on_public_default_vip = true
 #  default_route_pools {
 #    pool {
 #      name      = volterra_origin_pool.oidc-proxy-pool.name
 #      namespace = local.namespace
 #    }
 #  }
-#
+  routes {
+    simple_route {
+      disable_host_rewrite = true
+      origin_pools {
+        pool {
+          name  = volterra_origin_pool.oidc-proxy-pool.name
+          namespace = local.namespace
+        }
+      }
+      path {
+        prefix = "/"
+      }
+    }
+  }
 #  http {
 #    dns_volterra_managed = true
 #    port                 = "80"
 #  }
-#
-#  https_auto_cert {
-#    add_hsts      = var.enable_hsts
-#    http_redirect = var.enable_redirect
-#    no_mtls       = true
-#  }
-#
+
+  https_auto_cert {
+    add_hsts      = var.enable_hsts
+    http_redirect = var.enable_redirect
+    no_mtls       = true
+  }
+
 #  https {
 #    http_redirect = false
 #    add_hsts = false
@@ -157,21 +183,21 @@ resource "volterra_origin_pool" "oidc-proxy-pool" {
 #        }
 #    }
 #  }
-#
-#  app_firewall {
-#    name      = volterra_app_firewall.oidc-firewall.name
-#    namespace = local.namespace
-#  }
-#  disable_waf                     = false
-#  disable_rate_limit              = true
-#  round_robin                     = true
-#  service_policies_from_namespace = true
-#  no_challenge                    = var.disable_js_challenge
-#  dynamic "js_challenge" {
-#    for_each = local.js_delay_list
-#    content {
-#      js_script_delay = js_challenge.value["js_script_delay"]
-#      cookie_expiry   = js_challenge.value["cookie_expiry"]
-#    }
-#  }
-#}
+
+  app_firewall {
+    name      = volterra_app_firewall.oidc-firewall.name
+    namespace = local.namespace
+  }
+  disable_waf                     = false
+  disable_rate_limit              = true
+  round_robin                     = true
+  service_policies_from_namespace = true
+  no_challenge                    = var.disable_js_challenge
+  dynamic "js_challenge" {
+    for_each = local.js_delay_list
+    content {
+      js_script_delay = js_challenge.value["js_script_delay"]
+      cookie_expiry   = js_challenge.value["cookie_expiry"]
+    }
+  }
+}

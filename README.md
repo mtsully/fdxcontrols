@@ -18,13 +18,17 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
 
 ## Assets
 
-* **xc:**        F5 Distributed Cloud WAAP
-* **nap:**       NGINX Ingress Controller for Kubernetes with NGINX App Protect (WAF and API Protection)
-* **bigip:**     F5 BIG-IP (LTM and Advanced WAF)
-* **infra:**     AWS Infrastructure (VPC, IGW, etc.)
-* **eks:**       AWS Elastic Kubernetes Service
-* **arcadia:**   Arcadia Finance test web application and API
-* **juiceshop:** OWASP Juice Shop test web application
+* **xc:**                  F5 Distributed Cloud WAAP
+* **nap:**                 NGINX Ingress Controller for Kubernetes with NGINX App Protect (WAF and API Protection)
+* **bigip:**               F5 BIG-IP (LTM and Advanced WAF)
+* **infra:**               AWS Infrastructure (VPC, IGW, etc.)
+* **eks:**                 AWS Elastic Kubernetes Service
+* **arcadia:**             Arcadia Finance test web application and API
+* **juiceshop:**           OWASP Juice Shop test web application
+* **gcp-infra:**           GCP Infrastructure (Net, subnet, etc...)
+* **gke-cluster:**         GKE 
+* **gcp-storage-bucket:**  GCP Storage Bucket for RoboTester reports 
+* **api-security-tester:** API Security Tester (RoboTester + OIDC Proxy + OIDC IdP) 
 
 ## Tools
 
@@ -43,7 +47,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | xc-nap      | infra, eks, nap, arcadia, xc    |
   | xc-nap-api  | infra, eks, nap, arcadia, xc    |
   | xc-nap-bot  | infra, eks, nap, arcadia, xc    |
-  | xc-gke-nap  | gcp-infra, gke, nap, fdx, xc    |
+  | xc-gke-nap  | gcp-infra, gke, gcp-storage-bucket, api-security-tester, nap, fdx, xc    |
 
 * **Workspace Sharing:** Under the settings for each Workspace, set the **Remote state sharing** to share with each Workspace created.
   

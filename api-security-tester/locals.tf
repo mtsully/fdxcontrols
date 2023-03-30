@@ -1,6 +1,6 @@
 locals {
   namespace = var.volterra_namespace_exists ? join("", data.volterra_namespace.this.*.name) : join("", volterra_namespace.this.*.name)
-  fdx_security_tester_manifest_content = templatefile(format("%s/manifest/fdx_security_tester.tpl", path.module), {
+  fdx_security_tester_manifest_content = templatefile(format("%s/manifest/api_security_tester.tpl", path.module), {
     robot_tests_url           = indent(4, var.robot_tests_url)
     nuclei_templates_url       = indent(4, var.nuclei_templates_url)
   })

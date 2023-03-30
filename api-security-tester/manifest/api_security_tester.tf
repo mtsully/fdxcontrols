@@ -45,8 +45,11 @@ spec:
       - name: robotester
         image: registry.gitlab.com/f5-security-test/robotester
         imagePullPolicy: Always
+gcp_storage_bucket_url
         env:
         - name: AWS_UPLOAD_TO_S3
+          value: "0"
+        - name: GCP_STORAGE_BUCKET
           value: "0"
         volumeMounts:
         - name: robot-tests

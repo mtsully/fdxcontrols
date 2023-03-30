@@ -48,8 +48,8 @@ spec:
         env:
         - name: AWS_UPLOAD_TO_S3
           value: "0"
-        - name: GCP_STORAGE_BUCKET
-          value: ${gcp_storage_bucket_url}
+        - name: GCP_STORAGE_BUCKET_NAME
+          value: ${gcp_storage_bucket_name}
         volumeMounts:
         - name: robot-tests
           mountPath: /opt/robotframework/tests/

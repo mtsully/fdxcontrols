@@ -79,5 +79,5 @@ variable "disable_js_challenge" {
 }
 
 variable "name" {
-  default = "fdx-security-tester"
+  default = "api-security-tester"
 }

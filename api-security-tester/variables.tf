@@ -65,3 +65,19 @@ variable "nuclei_templates_url" {
   type        = string
   description = "Custom Nuclei templates to be downloaded and added to the template db"
 }
+
+variable "namespace" {
+  default = "fdx-demo"
+}
+
+variable "volterra_namespace_exists" {
+  default = "true"
+}
+
+variable "disable_js_challenge" {
+  default = true
+}
+
+variable "name" {
+  default = "fdx-security-tester"
+}

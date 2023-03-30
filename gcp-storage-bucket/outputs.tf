@@ -1,9 +1,9 @@
 output "url" {
-  description = "Bucket URL"
-  value       = local.first_bucket.url
+  description = "Bucket URL" 
+  value       = google_storage_bucket.bucket.url
 }
 
 output "name" {
   description = "Bucket name"
-  value       = local.first_bucket.name
+  value       = google_storage_bucket.bucket.name
 }

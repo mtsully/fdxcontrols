@@ -24,9 +24,9 @@ output "xc_vk8s_host" {
 }
 
 output "xc_vk8s_ca_cert" {
-    value = file(yamldecode(base64decodevolterra_api_credential.this.data)).clusters[0].cluster.certificate-authority
+    value = file(yamldecode(base64decode(volterra_api_credential.this.data)).clusters[0].cluster.certificate-authority
 }
 
 output "xc_vk8s_client_cert" {
-    value = file(yamldecode(base64decodevolterra_api_credential.this.data)).users[0].user.client-certificate-data
+    value = file(yamldecode(base64decode(volterra_api_credential.this.data)).users[0].user.client-certificate-data
 }

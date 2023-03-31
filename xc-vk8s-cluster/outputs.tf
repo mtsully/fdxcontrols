@@ -1,3 +1,9 @@
+
+output "api_url" {
+  description = "XC Tenant API URL"
+  value       = lvar.api_url
+}
+
 output "xc_namespace" {
   description = "XC namespace"
   value       = local.namespace

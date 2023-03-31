@@ -61,7 +61,7 @@ resource "volterra_api_credential" "this" {
 
 resource "local_file" "this_kubeconfig" {
   content  = base64decode(volterra_api_credential.this.data)
-  filename = format("%s/_output/fdx_security_tester_adn_vk8s_kubeconfig", path.root)
+  filename = format("%s/_output/xc_vk8s_kubeconfig", path.root)
 }
 
 resource "local_file" "fdx_security_tester_manifest" {
@@ -76,9 +76,7 @@ resource "time_sleep" "wait_k8s_server" {
 }
 
 provider "kubectl" {
-  host                   = var.eks_cluster_endpoint
-  cluster_ca_certificate = base64decode(var.eks_cluster_ca)
-  token                  = data.aws_eks_cluster_auth.main.token
+# Will use the KUBE_LOAD_CONFIG_FILE env variable set in Terraform Cloud to "_output/xc_vk8s_kubeconfig" 
   load_config_file       = true
 }
 

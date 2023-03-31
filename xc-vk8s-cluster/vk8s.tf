@@ -65,7 +65,7 @@ resource "local_file" "this_kubeconfig" {
 }
 
 resource "time_sleep" "wait_k8s_server" {
-  depends_on = [local_file.this_kubeconfig, local_file.fdx_security_tester_manifest]
+  depends_on = [local_file.this_kubeconfig]
 
   create_duration = "120s"
 }

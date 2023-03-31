@@ -68,6 +68,7 @@ resource "volterra_http_loadbalancer" "oidc-provider-lb" {
     add_hsts      = var.enable_hsts
     http_redirect = var.enable_redirect
     no_mtls       = true
+    default_load_balancer = true
   }
 
 #  https {

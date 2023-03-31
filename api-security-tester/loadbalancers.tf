@@ -1,5 +1,4 @@
 resource "volterra_origin_pool" "oidc-provider-pool" {
-  depends_on = [time_sleep.wait_namespace]
   name                   = format("%s-oidc-provider-pool", var.adn_name)
   namespace              = local.namespace
   description            = format("Origin pool pointing to OIDC Provider k8s service running on RE's")
@@ -24,7 +23,6 @@ resource "volterra_origin_pool" "oidc-provider-pool" {
 }
 
 resource "volterra_app_firewall" "oidc-firewall" {
-  depends_on = [time_sleep.wait_namespace]
   name                     = format("%s-waf", var.adn_name)
   description              = format("WAF in block mode for %s", var.adn_name)
   namespace                = local.namespace
@@ -33,7 +31,6 @@ resource "volterra_app_firewall" "oidc-firewall" {
 }
 
 resource "volterra_http_loadbalancer" "oidc-provider-lb" {
-  depends_on = [time_sleep.wait_namespace]
   name                            = format("%s-oidc-provider-lb", var.adn_name)
   namespace                       = local.namespace
   description                     = format("HTTPS loadbalancer object for %s-oidc-provider origin server", var.adn_name)
@@ -113,7 +110,6 @@ resource "volterra_http_loadbalancer" "oidc-provider-lb" {
 }
 
 resource "volterra_origin_pool" "oidc-proxy-pool" {
-  depends_on = [time_sleep.wait_namespace]
   name                   = format("%s-oidc-proxy-pool", var.adn_name)
   namespace              = local.namespace
   description            = format("Origin pool pointing to OIDC Proxy k8s service running on RE's")
@@ -139,7 +135,6 @@ resource "volterra_origin_pool" "oidc-proxy-pool" {
 
 
 resource "volterra_http_loadbalancer" "oidc-proxy-lb" {
-  depends_on = [time_sleep.wait_namespace]
   name                            = format("%s-oidc-proxy-lb", var.adn_name)
   namespace                       = local.namespace
   description                     = format("HTTPS loadbalancer object for %s-oidc-proxy origin server", var.adn_name)

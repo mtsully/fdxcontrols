@@ -1,8 +1,10 @@
 provider "volterra" {
-  url          = var.api_url
+  url          = data.tfe_outputs.xc-vk8s.api_url
 }
 
   provider "kubectl" {
-# Will use the KUBE_LOAD_CONFIG_FILE env variable set in Terraform Cloud to "_output/xc_vk8s_kubeconfig" 
-  load_config_file       = true
+    host = data.tfe_outputs.xc-vk8s.xc_vk8s_host
+    cluster_ca_certificate = data.tfe_outputs.xc-vk8s.xc_vk8s_ca_cert
+    client_certificate = data.tfe_outputs.xc-vk8s.xc_vk8s_client_cert
+    load_config_file       = false
 }

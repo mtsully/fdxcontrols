@@ -30,3 +30,7 @@ output "xc_vk8s_ca_cert" {
 output "xc_vk8s_client_cert" {
     value = yamldecode(base64decode(volterra_api_credential.this.data)).users[0].user.client-certificate-data
 }
+
+output "xc_vk8s_client_key" {
+    value = yamldecode(base64decode(volterra_api_credential.this.data)).users[0].user.client-key-data
+}

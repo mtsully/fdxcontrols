@@ -1,5 +1,5 @@
 resource "volterra_origin_pool" "oidc-provider-pool" {
-  name                   = format("%s-oidc-provider-pool", var.adn_name)
+  name                   = format("%s-oidc-provider-pool", local.adn_name)
   namespace              = local.namespace
   description            = format("Origin pool pointing to OIDC Provider k8s service running on RE's")
   loadbalancer_algorithm = "ROUND ROBIN"
@@ -23,17 +23,17 @@ resource "volterra_origin_pool" "oidc-provider-pool" {
 }
 
 resource "volterra_app_firewall" "oidc-firewall" {
-  name                     = format("%s-waf", var.adn_name)
-  description              = format("WAF in block mode for %s", var.adn_name)
+  name                     = format("%s-waf", local.adn_name)
+  description              = format("WAF in block mode for %s", local.adn_name)
   namespace                = local.namespace
   allow_all_response_codes = true
   blocking                 = var.blocking
 }
 
 resource "volterra_http_loadbalancer" "oidc-provider-lb" {
-  name                            = format("%s-oidc-provider-lb", var.adn_name)
+  name                            = format("%s-oidc-provider-lb", local.adn_name)
   namespace                       = local.namespace
-  description                     = format("HTTPS loadbalancer object for %s-oidc-provider origin server", var.adn_name)
+  description                     = format("HTTPS loadbalancer object for %s-oidc-provider origin server", local.adn_name)
   domains                         = [format("fdx-oidc-provider.%s", var.app_domain)]
   advertise_on_public_default_vip = true
 #  default_route_pools {
@@ -110,7 +110,7 @@ resource "volterra_http_loadbalancer" "oidc-provider-lb" {
 }
 
 resource "volterra_origin_pool" "oidc-proxy-pool" {
-  name                   = format("%s-oidc-proxy-pool", var.adn_name)
+  name                   = format("%s-oidc-proxy-pool", local.adn_name)
   namespace              = local.namespace
   description            = format("Origin pool pointing to OIDC Proxy k8s service running on RE's")
   loadbalancer_algorithm = "ROUND ROBIN"
@@ -135,9 +135,9 @@ resource "volterra_origin_pool" "oidc-proxy-pool" {
 
 
 resource "volterra_http_loadbalancer" "oidc-proxy-lb" {
-  name                            = format("%s-oidc-proxy-lb", var.adn_name)
+  name                            = format("%s-oidc-proxy-lb", local.adn_name)
   namespace                       = local.namespace
-  description                     = format("HTTPS loadbalancer object for %s-oidc-proxy origin server", var.adn_name)
+  description                     = format("HTTPS loadbalancer object for %s-oidc-proxy origin server", local.adn_name)
   domains                         = [format("fdx-oidc-proxy.%s", var.app_domain)]
   advertise_on_public_default_vip = true
 #  default_route_pools {

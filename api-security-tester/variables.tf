@@ -14,11 +14,6 @@ variable "api_url" {
   description = "Your F5 XC tenant api url"
 }
 
-variable "volterra_namespace_exists" {
-  type        = string
-  description = "Flag to create or use existing volterra namespace"
-  default     = false
-}
 
 variable "volterra_namespace" {
   type        = string

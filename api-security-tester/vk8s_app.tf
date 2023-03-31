@@ -1,16 +1,8 @@
 
-
-resource "local_file" "this_kubeconfig" {
-  content  = base64decode(volterra_api_credential.this.data)
-  filename = format("%s/_output/xc_vk8s_kubeconfig", path.root)
-}
-
 resource "local_file" "fdx_security_tester_manifest" {
   content  = local.fdx_security_tester_manifest_content
   filename = format("%s/_output/fdx-security-tester.yaml", path.root)
 }
-
-
 
 resource "kubectl_manifest" "apply_manifest" {
     yaml_body = local.fdx_security_tester_manifest_content

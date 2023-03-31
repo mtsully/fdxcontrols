@@ -1,3 +1,9 @@
+#TF Cloud
+variable "tf_cloud_organization" {
+  type        = string
+  description = "TF cloud org (Value set in TF cloud)"
+}
+
 variable "adn_name" {
   type        = string
   description = "ADN Name. Also used as a prefix in names of related resources."

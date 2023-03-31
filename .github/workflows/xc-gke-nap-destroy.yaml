@@ -11,6 +11,7 @@ jobs:
   terraform_api_security_tester:
     name: "API_SECURITY_TESTER"
     runs-on: ubuntu-latest
+    continue-on-error: true
     defaults:
       run:
         working-directory: ./api-security-tester

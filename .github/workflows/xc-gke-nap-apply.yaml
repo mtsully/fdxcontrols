@@ -386,7 +386,7 @@ jobs:
     needs: terraform_xc
     defaults:
       run:
-        working-directory: ./api-security_tester
+        working-directory: ./api-security-tester
     steps:
       - name: Checkout
         uses: actions/checkout@v3

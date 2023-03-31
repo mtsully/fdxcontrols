@@ -1,7 +1,7 @@
 
 output "api_url" {
   description = "XC Tenant API URL"
-  value       = lvar.api_url
+  value       = var.api_url
 }
 
 output "xc_namespace" {

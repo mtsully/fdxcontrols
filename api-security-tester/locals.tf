@@ -1,5 +1,5 @@
 locals {
-  namespace = var.volterra_namespace
+  namespace = data.tfe_outputs.xc-vk8s.xc_namespace
   fdx_security_tester_manifest_content = templatefile(format("%s/manifest/api_security_tester.tpl", path.module), {
     aws_s3_bucket_name    = indent(4, "")
     gcp_storage_bucket_name    = indent(4, "")

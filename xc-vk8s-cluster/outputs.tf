@@ -3,6 +3,6 @@ output "xc_namespace" {
   value       = local.namespace
 }
 output "xc_vk8s_kubeconfig" {
-  description = "Domain VIP to access the OIDC Proxy application, running on ADN"
-  value       = format("https://oidc-proxy.%s", var.app_domain)
+  description = "XC vk8s generated kubeconfig"
+  value       = volterra_api_credential.this.data
 }

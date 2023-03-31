@@ -1,4 +1,4 @@
-data "tfe_outputs" "gcp-storage-bucket" {
+data "tfe_outputs" "xc-vk8s" {
   organization = var.tf_cloud_organization
-  workspace = "gcp-storage-bucket"
+  workspace = "xc-vk8s"
 }

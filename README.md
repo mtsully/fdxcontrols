@@ -67,6 +67,7 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | tf_cloud_organization | Terraform | Your Terraform Cloud Organization name |
   | fdx_dockerhub_username | Terraform | The FDX Docker Registry username, see FDX reference implementation deployment guide |
   | fdx_dockerhub_password | Terraform | The FDX Docker Registry password, see FDX reference implementation deployment guide |
+  | KUBE_LOAD_CONFIG_FILE | Environment | XC vk8s generated kubeconfig. Set this to _output/xc_vk8s_kubeconfig |
 
 ## GitHub
 

@@ -56,22 +56,4 @@ variable "blocking" {
   default     = true
 }
 
-variable "robot_tests_url" {
-  type        = string
-  description = "Test suite to be executed by Robot Framework"
-}
-
-variable "nuclei_templates_url" {
-  type        = string
-  description = "Custom Nuclei templates to be downloaded and added to the template db"
-}
-
-variable "namespace" {
-  default = "fdx-demo"
-}
-
-variable "volterra_namespace_exists" {
-  default = "true"
-}
-
 

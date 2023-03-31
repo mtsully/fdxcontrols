@@ -74,10 +74,6 @@ variable "volterra_namespace_exists" {
   default = "true"
 }
 
-variable "disable_js_challenge" {
-  default = true
-}
-
 variable "name" {
   default = "api-security-tester"
 }

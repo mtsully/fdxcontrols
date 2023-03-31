@@ -3,6 +3,11 @@ variable "adn_name" {
   description = "ADN Name. Also used as a prefix in names of related resources."
 }
 
+variable "api_url" {
+  type        = string
+  description = "Your F5 XC tenant api url"
+}
+
 variable "volterra_namespace_exists" {
   type        = string
   description = "Flag to create or use existing volterra namespace"

@@ -16,7 +16,7 @@ output "adn_name" {
 
 output "xc_vk8s_kubeconfig" {
   description = "XC vk8s generated kubeconfig"
-  value       = yamldecode(base64decode(volterra_api_credential.this.data))
+  value       = volterra_api_credential.this.data
 }
 
 output "xc_vk8s_host" {

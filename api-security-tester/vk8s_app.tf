@@ -22,14 +22,14 @@ resource "null_resource" "apply_manifest" {
   }
   
   provisioner "local-exec" {
-    command = "kubectl apply -f _output/fdx-security-tester.yaml"
+    command = "./kubectl apply -f _output/fdx-security-tester.yaml"
     environment = {
       KUBECONFIG = format("%s/_output/fdx_security_tester_adn_vk8s_kubeconfig", path.root)
     }
   }
   provisioner "local-exec" {
     when    = destroy
-    command = "kubectl delete -f _output/fdx-security-tester.yaml --ignore-not-found=true"
+    command = "./kubectl delete -f _output/fdx-security-tester.yaml --ignore-not-found=true"
     environment = {
       KUBECONFIG = format("%s/_output/fdx_security_tester_adn_vk8s_kubeconfig", path.root)
     }

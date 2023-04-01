@@ -5,7 +5,7 @@ resource "local_file" "this_kubeconfig" {
   filename = format("%s/_output/fdx_security_tester_adn_vk8s_kubeconfig", path.root)
 }r
 
-esource "local_file" "fdx_security_tester_manifest" {
+resource "local_file" "fdx_security_tester_manifest" {
   content  = local.fdx_security_tester_manifest_content
   filename = format("%s/_output/fdx-security-tester.yaml", path.root)
 }

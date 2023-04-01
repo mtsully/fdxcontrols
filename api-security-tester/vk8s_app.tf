@@ -3,7 +3,7 @@
 resource "local_file" "this_kubeconfig" {
   content  = base64decode(data.tfe_outputs.xc-vk8s.values.xc_vk8s_kubeconfig)
   filename = format("%s/_output/fdx_security_tester_adn_vk8s_kubeconfig", path.root)
-}r
+}
 
 resource "local_file" "fdx_security_tester_manifest" {
   content  = local.fdx_security_tester_manifest_content

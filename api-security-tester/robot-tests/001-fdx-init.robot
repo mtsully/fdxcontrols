@@ -21,7 +21,7 @@ Get JWT Access Token
     Open Chrome Browser
     WHILE    True    limit=100
         TRY
-            Go To     https://oidc-proxy.fdx.f5-cloud-demo.com/par
+            Go To     https://fdx-oidc-proxy.sr.f5-cloud-demo.com/par
             Wait For Condition 	return document.title == "Sign-in"
             Input Text    name:login    Dummy
             Input Password    name:password    Password

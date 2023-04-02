@@ -53,7 +53,7 @@ spec:
         - name: MAIL_HOST
           value: ${mail_host}
         - name: MAIL_PORT
-          value: ${mail_port}
+          value: "${mail_port}"
         - name: MAIL_API_KEY
           value: ${mail_api_key}
         - name: MAIL_API_SECRET

@@ -67,8 +67,8 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | tf_cloud_organization | Terraform | Your Terraform Cloud Organization name |
   | fdx_dockerhub_username | Terraform | The FDX Docker Registry username, see FDX reference implementation deployment guide |
   | fdx_dockerhub_password | Terraform | The FDX Docker Registry password, see FDX reference implementation deployment guide |
-  | mail_api_key | Environment | SMTP server username or API Key |
-  | mail_api_secret | Environment | SMTP server password or API Secret |
+  | mail_api_key | Terraform | SMTP server username or API Key |
+  | mail_api_secret | Terraform | SMTP server password or API Secret |
   
 
 ## GitHub

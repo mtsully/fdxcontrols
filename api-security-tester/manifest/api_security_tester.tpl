@@ -50,6 +50,18 @@ spec:
           value: ${aws_s3_bucket_name}
         - name: GCP_STORAGE_BUCKET_NAME
           value: ${gcp_storage_bucket_name}
+        - name: MAIL_HOST
+          value: ${mail_host}
+        - name: MAIL_PORT
+          value: ${mail_port}
+        - name: MAIL_API_KEY
+          value: ${mail_api_key}
+        - name: MAIL_API_SECRET
+          value: ${mail_api_secret} 
+        - name: MAIL_TO_ADDR
+          value: ${mail_to_addr}
+        - name: MAIL_FROM_ADDR
+          value: ${mail_from_addr}            
         volumeMounts:
         - name: robot-tests
           mountPath: /opt/robotframework/tests/

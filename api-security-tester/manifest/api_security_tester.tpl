@@ -33,7 +33,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 5
       initContainers:
-      - name: init-robotester3
+      - name: init-robotester4
         image: registry.gitlab.com/f5-security-test/download-robotester-files:latest
         imagePullPolicy: Always
         volumeMounts:

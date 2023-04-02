@@ -52,9 +52,9 @@ variable "mail_host" {
 }
 
 variable "mail_port" {
-  type        = number
+  type        = string
   description = "SMTP Port to send RoboTets Reports to"
-  default     = 2525
+  default     = "2525"
 }
 
 variable "mail_api_key" {

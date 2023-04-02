@@ -67,7 +67,12 @@ Example hybrid security deployments utilizing F5 Distributed Cloud WAAP in conju
   | tf_cloud_organization | Terraform | Your Terraform Cloud Organization name |
   | fdx_dockerhub_username | Terraform | The FDX Docker Registry username, see FDX reference implementation deployment guide |
   | fdx_dockerhub_password | Terraform | The FDX Docker Registry password, see FDX reference implementation deployment guide |
-  | KUBE_LOAD_CONFIG_FILE | Environment | XC vk8s generated kubeconfig. Set this to _output/xc_vk8s_kubeconfig |
+  | MAIL_HOST | Environment | SMTP server host to send RoboTest reports to. For Mailjet, set this to in-v3.mailjet.com |
+  | MAIL_PORT | Environment | SMTP server port to send RoboTest reports to. For Mailjet, set this to 2525 |
+  | MAIL_API_KEY | Environment | SMTP server username or API Key |
+  | MAIL_API_SECRET | Environment | SMTP server password or API Secret |
+  | MAIL_FROM_ADDR | Environment | RoboTest reports mail FROM Address |
+  | MAIL_TO_ADDR | Environment | RoboTest reports mail TO Address |
 
 ## GitHub
 

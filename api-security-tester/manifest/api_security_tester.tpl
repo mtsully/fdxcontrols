@@ -55,9 +55,9 @@ spec:
         - name: MAIL_PORT
           value: ${mail_port}
         - name: MAIL_API_KEY
-          value: "${mail_api_key}"
+          value: ${mail_api_key}
         - name: MAIL_API_SECRET
-          value: "${mail_api_secret}" 
+          value: ${mail_api_secret} 
         - name: MAIL_TO_ADDR
           value: ${mail_to_addr}
         - name: MAIL_FROM_ADDR

@@ -44,5 +44,37 @@ variable "blocking" {
   description = "Enable blocking mode for app_firewall"
   default     = true
 }
+ 
+variable "mail_host" {
+  type        = string
+  description = "SMTP Host to send RoboTets Reports to"
+  default     = "in-v3.mailjet.com"
+}
+
+variable "mail_port" {
+  type        = number
+  description = "SMTP Port to send RoboTets Reports to"
+  default     = 2525
+}
+
+variable "mail_api_key" {
+  type        = string
+  description = "SMTP Server username or API Key"
+}
+
+variable "mail_api_secret" {
+  type        = string
+  description = "SMTP Server password or API Secret"
+}
+
+variable "mail_from_addr" {
+  type        = string
+  description = "RoboTest Reports mail FROM Address"
+}
+
+variable "mail_to_addr" {
+  type        = string
+  description = "RoboTest Reports mail TO Address"
+}
 
 

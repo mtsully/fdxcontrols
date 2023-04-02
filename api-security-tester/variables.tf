@@ -60,21 +60,25 @@ variable "mail_port" {
 variable "mail_api_key" {
   type        = string
   description = "SMTP Server username or API Key"
+  default = ""
 }
 
 variable "mail_api_secret" {
   type        = string
   description = "SMTP Server password or API Secret"
+  default = ""
 }
 
 variable "mail_from_addr" {
   type        = string
   description = "RoboTest Reports mail FROM Address"
+  default = ""
 }
 
 variable "mail_to_addr" {
   type        = string
   description = "RoboTest Reports mail TO Address"
+  default = ""
 }
 
 

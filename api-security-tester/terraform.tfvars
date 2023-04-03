@@ -6,4 +6,4 @@ disable_js_challenge = true
 mail_host = "in-v3.mailjet.com"
 mail_port = "2525"
 mail_from_addr = ""
-mail_to_addr = "v.tobi@f5.com"  
+mail_to_addr = ""  
